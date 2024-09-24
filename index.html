@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="data:image/png;base64,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" sizes="64x64">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Online Shopping for Women, Men, Kids Fashion &amp; Lifestyle - Myntra</title>
+</head>
+<body>
+    <header>
+        <div class="logo_container">
+            <a href="#"><img class="mynthra_home" src="images/myntra_logo.webp" alt="mynthra homepage" /></a>
+        </div>
+        <nav class="nav_bar">
+            <a href="#">Men</a>
+            <a href="#">Women</a>
+            <a href="#">Kids</a>
+            <a href="#">Home & Living</a>
+            <a href="#">Beauty</a>
+            <a href="#">Studio <sup>New</sup></a>
+        </nav>
+        <div class="search_bar">
+            <span class="material-symbols-outlined search_icon">search</span>
+            <input type="text" class="search_input" placeholder="Search for products, brands and more">
+        </div>
+        <div class="action_bar">
+            <div class="action_container"><span class="material-symbols-outlined">person</span><span>Profile</span></div>
+            <div class="action_container"><span class="material-symbols-outlined">favorite</span><span>Wishlist</span></div>
+            <div class="action_container"><span class="material-symbols-outlined">shopping_bag</span><span>Bag</span></div>
+        </div>
+    </header>
+    <main>
+        <div class="banner-container">
+           <a href="#"><img draggable="false" src="images/MainBanner-1.jpg"></a>
+            <a href="#"><img draggable="false" src="images/MainBanner-2.jpg"></a>
+        </div>
+        <div class="category-heading">Budget-Friendly Bargains</div>
+        <div class="bargain-items">
+            <div><a href="#"><img draggable="false" src="images/bargains/1.shirts.jfif"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/2. jeans.jfif"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/3.Tshirts.jfif"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/4.casual shoes.jfif"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/5.head phones.jfif"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/6.sport shoes.webp"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/7.trousers.webp"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/8.deodrants.webp"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/9.kurta sets.webp"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/10.kurtas.webp"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/11.dresses.webp"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/12.lipsticks.webp"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/13.flats.webp"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/14.heels.webp"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/15.tops&tshirts.webp"></a></div>
+            <div><a href="#"><img draggable="false" src="images/bargains/16.sarees.webp"></a></div>
+        </div>
+        <div class="category-heading">Medal Worthy brands to bag</div>
+        <div class="offer-items">
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/1.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/2.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/3.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/4.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/5.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/6.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/7.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/8.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/9.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/10.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/11.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/12.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/13.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/14.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/15.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/16.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/17.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/18.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/19.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/20.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/21.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/22.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/23.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/offers/24.webp"></a></div>
+        </div>
+        <div class="category-heading">grand global brands</div>
+        <div class="brands offer-items">
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/brands/1.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/brands/2.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/brands/3.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/brands/4.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/brands/5.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/brands/6.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/brands/7.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/brands/8.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/brands/9.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/brands/10.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/brands/11.webp"></a></div>
+            <div><a href="#"><img class="offer-img" draggable="false" src="images/brands/12.webp"></a></div>
+        </div>
+        <div class="category-heading">Shop by category</div>
+        <div class="category-items">
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/1.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/2.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/3.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/4.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/5.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/6.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/7.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/8.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/9.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/10.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/11.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/12.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/13.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/14.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/15.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/16.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/17.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/18.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/19.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/20.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/21.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/22.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/23.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/24.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/25.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/26.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/27.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/28.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/29.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/30.webp"></a></div>
+        </div>
+        <div class="category">
+            <div></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/31.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/32.webp"></a></div>
+            <div class="item"><a href="#"><img class="offer-img" draggable="false" src="images/categories/33.webp"></a></div>
+            <div></div>
+        </div>
+    </main>
+    <Footer>
+        <section class="mainlinks-container">
+                <div>
+                    <div class="shopping-links">
+                        <div class="heading"><a href="#">ONLINE SHOPPING</a></div>
+                        <div><a class="links" href="#">men</a></div>
+                        <div><a class="links" href="#">women</a></div>
+                        <div><a class="links" href="#">kids</a></div>
+                        <div><a class="links" href="#">home & living</a></div>
+                        <div><a class="links" href="#">beauty</a></div>
+                        <div><a class="links" href="#">gift cards</a></div>
+                        <div><a class="links" href="#">mynthra insider</a></div>
+                    </div>
+                    <div class="useful-links">
+                        <div class="heading"><a href="#">USEFUL LINKS</a></div>
+                        <div><a class="links" href="#">blog</a></div>
+                        <div><a class="links" href="#">careers</a></div>
+                        <div><a class="links" href="#">site map</a></div>
+                        <div><a class="links" href="#">corporate information</a></div>
+                        <div><a class="links" href="#">whitehat</a></div>
+                        <div><a class="links" href="#">cleartrip</a></div>
+                    </div>
+                </div>
+                <div class="customer-policies">
+                    <div class="heading"><a href="#">CUSTOMER POLICIES</a></div>
+                        <div><a class="links" href="#">contact us</a></div>
+                        <div><a class="links" href="#">FAQ</a></div>
+                        <div><a class="links" href="#">T&C</a></div>
+                        <div><a class="links" href="#">terms of use</a></div>
+                        <div><a class="links" href="#">track orders</a></div>
+                        <div><a class="links" href="#">shipping</a></div>
+                        <div><a class="links" href="#">cancellation</a></div>
+                        <div><a class="links" href="#">returns</a></div>
+                        <div><a class="links" href="#">privacy policy</a></div>
+                        <div><a class="links" href="#">grievance officer</a></div>
+                </div>
+                <div>
+                    <div>
+                        <div class="heading"><a href="#">EXPERIENCE MYNTHRA APP ON MOBILE</a></div>
+                        <div class="app-links">
+                            <div class="app"><a href="#"><img src="images/apps/google play.png" alt="google-playstore"></a></div>
+                            <div class="app"><a href="#"><img src="images/apps/apple store.png" alt="apple-playstore"></a></div>  
+                    
+                        </div>
+                    </div>
+                    <div>
+                        <div class="heading"><a href="#">KEEP IN TOUCH</a></div>
+                        <div class="social-links">
+                            <div class="social-app"><a href="#"><img src="images/apps/facebook.png" alt="google-playstore"></a></div>
+                            <div class="social-app"><a href="#"><img src="images/apps/x.png" alt="apple-playstore"></a></div>
+                            <div class="social-app"><a href="#"><img src="images/apps/youtube.png" alt="google-playstore"></a></div>
+                            <div class="social-app"><a href="#"><img src="images/apps/insta.png" alt="apple-playstore"></a></div>
+                        </div>
+                    </div>
+                </div>
+            <div class="return-info">
+                <div class="tag"><img src="images/original.png" alt="original"><div><b>100% ORIGINAL</b> guarantee for all products at myntra.com</div></div>
+                <div class="tag"><img src="images/Return-Window-image.png" alt="return"><div><b>Return within 14days</b> of receiving your order</div></div>
+            </div>
+            <div></div>
+        </section>
+        <section class="popularlinks-container">
+            <div class="line-after-text">
+                <span class="popular-searches">Popular Searches</span>
+            </div>
+            <div class="search-links side-lines">
+                <a href="#">Makeup</a>
+                <a href="#">Dresses For Girls</a>
+                <a href="#">T-Shirts</a>
+                <a href="#">Sandals</a>
+                <a href="#">Headphones</a>
+                <a href="#">Babydolls</a>
+                <a href="#">Blazers For Men</a>
+                <a href="#">Handbags</a>
+                <a href="#">Ladies Watches</a>
+                <a href="#">Bags</a>
+                <a href="#">Sport Shoes</a>
+                <a href="#">Reebok Shoes</a>
+                <a href="#">Puma Shoes</a>
+                <a href="#">Boxers</a>
+                <a href="#">Wallets</a>
+                <a href="#">Tops</a>
+                <a href="#">Earrings</a>
+                <a href="#">Fastrack Watches</a>
+                <a href="#">Kurtis</a>
+                <a href="#">Nike</a>
+                <a href="#">Smart Watches</a>
+                <a href="#">Titan Watches</a>
+                <a href="#">Designer Blouse</a>
+                <a href="#">Gowns</a>
+                <a href="#">Rings</a>
+                <a href="#">Cricket Shoes</a>
+                <a href="#">Forever 21</a>
+                <a href="#">Eye Makeup</a>
+                <a href="#">Photo Frames</a>
+                <a href="#">Punjabi Suits</a>
+                <a href="#">Bikini</a>
+                <a href="#">Myntra Fashion Show</a>
+                <a href="#">Lipstick</a>
+                <a href="#">Saree</a>
+                <a href="#">Watches</a>
+                <a href="#">Dresses</a>
+                <a href="#">Lehenga</a>
+                <a href="#">Nike Shoes</a>
+                <a href="#">Goggles</a>
+                <a href="#">Bras</a>
+                <a href="#">Suit</a>
+                <a href="#">Chinos</a>
+                <a href="#">Shoes</a>
+                <a href="#">Adidas Shoes</a>
+                <a href="#">Woodland Shoes</a>
+                <a href="#">Jewellery</a>
+                <a href="#">Designer Sarees</a>
+              </div>
+              <div class="contact">
+                <div>In case of any concern, <a style="text-decoration: none;" href="#"><b style="color:#526cd0;font-weight:bolder;">Contact Us</b></a></div>
+                <div>&#169; 2024 www.mynthra.com. All rights reserved.</div>
+                <div>A Flipkart company</div>
+              </div>
+              <hr>
+        </section>
+        <section class="address-info">
+            <div>
+                <div class="heading capitalize"><a href="#">registered office address</a></div>
+                <div class="address links">Buildings Alyssa,<br>
+                    Begonia and Clover situated in Embassy Tech Village,<br>
+                    Outer Ring Road,<br>
+                    Devarabeesanahalli Village,<br>
+                    Varthur Hobli,<br>
+                    Bengaluru – 560103, India</div>
+            </div>
+            <div class="tel links">
+                CIN: U72300KA2007PTC041799 <br>
+                Telephone: <a style="text-decoration: none;" href="tel:+91-80-61561999"><b style="color:#526cd0;font-weight:bolder;">+91-80-61561999</b></a>
+            </div>
+        </section>
+        <hr>
+        <section class="desc">
+            <h4>ONLINE SHOPPING MADE EASY AT MYNTRA</h4>
+            <p class="description">If you would like to experience the best of online shopping for men, women and kids in India, you are at the right place. Myntra is the ultimate destination for fashion and lifestyle, being host to a wide array of merchandise including <a style="text-decoration: none; color: #696b79;"href="#">clothing</a>, footwear, accessories, jewellery, personal care products and more. It is time to redefine your style statement with our treasure-trove of trendy items. Our online store brings you the latest in designer products straight out of fashion houses. You can shop online at Myntra from the comfort of your home and get your favourites delivered right to your doorstep.</p>
+            <h4>BEST ONLINE SHOPPING SITE IN INDIA FOR FASHION</h4>
+            <p class="description">Be it clothing, footwear or accessories, Myntra offers you the ideal combination of fashion and functionality for men, women and kids. You will realise that the sky is the limit when it comes to the types of outfits that you can purchase for different occasions.</p>
+            <ol class="fashion-categories">
+                <li class="description"><b style="color: #545454;">Smart men’s clothing</b> - At Myntra you will find myriad options in smart formal shirts and trousers, cool T-shirts and jeans, or kurta and pyjama combinations for men. Wear your attitude with printed T-shirts. Create the back-to-campus vibe with varsity T-shirts and distressed jeans. Be it gingham, buffalo, or window-pane style, checked shirts are unbeatably smart. Team them up with chinos, cuffed jeans or cropped trousers for a smart casual look. Opt for a stylish layered look with biker jackets. Head out in cloudy weather with courage in water-resistant jackets. Browse through our innerwear section to find supportive garments which would keep you confident in any outfit.</li>
+                <li class="description"><b style="color: #545454;">Trendy women’s clothing</b> - <a style="text-decoration: none; color: #696b79;"href="#">Online shopping for women</a> at Myntra is a mood-elevating experience. Look hip and stay comfortable with chinos and printed shorts this summer. Look hot on your date dressed in a little black dress, or opt for red dresses for a sassy vibe. Striped dresses and T-shirts represent the classic spirit of nautical fashion. Choose your favourites from among Bardot, off-shoulder, shirt-style, blouson, embroidered and peplum tops, to name a few. Team them up with skinny-fit jeans, skirts or palazzos. Kurtis and jeans make the perfect fusion-wear combination for the cool urbanite. Our grand <a style="text-decoration: none; color: #696b79;"href="#">sarees</a> and lehenga-choli selections are perfect to make an impression at big social events such as weddings. Our salwar-kameez sets, kurtas and Patiala suits make comfortable options for regular wear.</li>
+                <li class="description"><b style="color: #545454;">Fashionable footwear</b> - While clothes maketh the man, the type of footwear you wear reflects your personality. We bring you an exhaustive lineup of options in casual shoes for men, such as sneakers and loafers. Make a power statement at work dressed in brogues and oxfords. Practice for your marathon with running shoes for men and women. Choose shoes for individual games such as tennis, football, basketball, and the like. Or step into the casual style and comfort offered by sandals, sliders, and flip-flops. Explore our lineup of fashionable footwear for ladies, including pumps, heeled boots, wedge-heels, and pencil-heels. Or enjoy the best of comfort and style with embellished and metallic flats.</li>
+                <li class="description"><b style="color: #545454;">Stylish accessories</b> - Myntra is one of the best online shopping sites for classy accessories that perfectly complement your outfits. You can select smart analogue or digital watches and match them up with belts and ties. Pick up spacious bags, backpacks, and wallets to store your essentials in style. Whether you prefer minimal jewellery or grand and sparkling pieces, our online jewellery collection offers you many impressive options.</li>
+                <li class="description"><b style="color: #545454;">Fun and frolic</b> - Online shopping for kids at Myntra is a complete joy. Your little princess is going to love the wide variety of pretty dresses, ballerina shoes, headbands and clips. Delight your son by picking up sports shoes, superhero T-shirts, football jerseys and much more from our online store. Check out our lineup of toys with which you can create memories to cherish.</li>
+                <li class="description"><b style="color: #545454;">Beauty begins here</b> - You can also refresh, rejuvenate and reveal beautiful skin with personal care, beauty and grooming products from Myntra. Our soaps, shower gels, skin care creams, lotions and other ayurvedic products are specially formulated to reduce the effect of aging and offer the ideal cleansing experience. Keep your scalp clean and your hair uber-stylish with shampoos and hair care products. Choose makeup to enhance your natural beauty.</li>
+            </ol>
+            <p class="description">Myntra is one of the best online shopping sites in India which could help transform your living spaces completely. Add colour and personality to your bedrooms with bed linen and curtains. Use smart tableware to impress your guest. Wall decor, clocks, <a style="text-decoration: none; color: #696b79;"href="#">photo frames</a> and artificial plants are sure to breathe life into any corner of your home.</p>
+            <h4>AFFORDABLE FASHION AT YOUR FINGERTIPS</h4>
+            <p class="description">Myntra is one of the unique online shopping sites in India where fashion is accessible to all. Check out our new arrivals to view the latest designer clothing, footwear and accessories in the market. You can get your hands on the trendiest style every season in western wear. You can also avail the best of ethnic fashion during all Indian festive occasions. You are sure to be impressed with our seasonal discounts on footwear, trousers, shirts, backpacks and more. The end-of-season sale is the ultimate experience when fashion gets unbelievably affordable.</p>
+            <h4>MYNTRA INSIDER</h4>
+            <p class="description">Every online shopping experience is precious. Hence, a cashless reward-based customer loyalty program called <a style="text-decoration: none; color: #696b79;"href="#">Myntra Insider</a> was introduced to enhance your online experience. The program is applicable to every registered customer and measures rewards in the form of Insider Points. <br><br>
+                There are four levels to achieve in the program, as the Insider Points accumulate. They are - Insider, Select, Elite or Icon. Apart from offering discounts on Myntra and partner platform coupons, each tier comes with its own special perks.</p>
+            <dl>
+                <dt><h4>Insider</h4></dt>
+                <dd>
+                    <ul>
+                        <li>Opportunity to master any domain in fashion with tips from celebrity stylists at Myntra Masterclass sessions.</li>
+                        <li>Curated collections from celeb stylists.</li>
+                    </ul>
+                </dd>
+                <dt><h4>Elite</h4></dt>
+                <dd>
+                    <ul>
+                        <li>VIP access to special sale events such as the End of Reason Sale (EORS) and product launches.</li>
+                        <li>Exclusive early access to Limited Edition products.</li>
+                    </ul>
+                </dd>
+                <dt><h4>Icon</h4></dt>
+                <dd>
+                    <ul>
+                        <li>Chance to get on guest lists for special events.</li>
+                    </ul>
+                </dd>
+            </dl>
+            <h4>Myntra Studio - The Personalised Fashion Feed You Wouldn’t Want To Miss Out On</h4>
+            <p class="description">The world wide web is evolving at a relentless pace, and with an accelerated growth each passing year, there is bound to be an overwhelming surge of online content. It was for this very reason that personalisation of search feeds was proposed as a solution to combat the overload of irrelevant information. <br><br>
+                Several social media platforms such as Facebook and Instagram along with various online shopping websites have chosen to help filter content, increasing user engagement, retention and customer loyalty. <br><br>
+                Myntra is one such online shopping website that joins the list of platforms that help curate a personalised fashion feed. Named the <a style="text-decoration: none; color: #696b79;"href="#">Myntra Studio</a>, this personalised search feed brings you the latest men and women’s fashion trends, celebrity styles, branded content and daily updates from your favourite fashion labels. <br><br>
+                If you are wondering how impactful Myntra Studio can be, we are listing out five perks of having a rich, meaningful, and personalised fashion feed in your life.</p>
+            <ol>
+                <li class="description"><h4>Keep Up With What Your Favourite Fashion Icons Are Upto</h4>The #OOTD, AKA outfit of the day hashtag trend has been a rage among fashion bloggers and stylists. The whole concept of building an outfit from scratch and showcasing it to a huge community of enthusiasts using the hashtag has helped individuals with understanding trends and making suitable for daily wear. <br><br>
+                    Imagine if you could keep up with every piece of clothing and accessory worn by the fashion icons you look upto. From Sonam Kapoor to Hailey Baldwin Bieber, Myntra Studio has a ‘Stories’ feature to help track celebrity fashion trends, exploring details such as their outfit of the day. This way, you would not ever miss out on the latest celebrity fashion trends, from all around the world.</li>
+                <li class="description"><h4>Quick Fashion Tip And Tricks </h4>Whether it is draping a saree into a dhoti style, wearing the right lingerie under certain dresses or discovering multiple uses out of heavy ethnic wear, Myntra Studio will help you acquire some unique and useful fashion hacks. Each hack is designed with the intention to help you get the best wear out of everything in your wardrobe.</li>
+                <li class="description"><h4>Updates on What Is Trending and New Product Launches </h4>Since fast fashion seems to be extremely hard to keep up with these days, a quick update on what is trending in accessories, clothing and footwear would certainly be of great help. Myntra Studio helps you stay connected to the most beloved and sought after brands such as Puma, Coverstory, The Label Life and so many more. <br><br>
+                    Your feed keeps you updated with stories of what the brands are creating including clothing, footwear and jewellery, along with their new seasonal collections.</li>
+                <li class="description"><h4>Explicit Step-By-Step Beauty Routines From Experts</h4>Just like fashion, the beauty community keeps on growing, and with brands such as Huda Beauty, MAC and the latest Kay Beauty by Katrina Kaif, are constantly coming up with mind-blowing products. Whether it is creating a no-makeup look, different winged eyeliners, do-it-yourself facial masks and other personal care beauty routines, Myntra Studio is here for you.</li>
+                <li class="description"><h4>Celebrity Confessions And A Look Into Their Lives</h4>A bonus feature that Myntra Studio has in store for you is celebrity confessions and a peek into their lives. So, Myntra helps you stay connected to your most beloved celebrities in a matter of clicks. <br><br>
+                    If you are very particular when it comes to the content you wish to view and engage with on social media, the ability to intricately filter content helps achieve that. Applying the same formula for hardcore fashion lovers and shoppers, Myntra Studio brings you a daily fashion fix incorporating everything that you love, all at one place. Sign up on Myntra today and start organising your fashion feed, just the way you want to.</li>
+            </ol>
+            <h4>MYNTRA APP</h4>
+            <p class="description">Myntra, India’s no. 1 online fashion destination justifies its fashion relevance by bringing something new and chic to the table on the daily. Fashion trends seem to change at lightning speed, yet the Myntra shopping app has managed to keep up without any hiccups. In addition, Myntra has vowed to serve customers to the best of its ability by introducing its first-ever loyalty program, The Myntra Insider. Gain access to priority delivery, early sales, lucrative deals and other special perks on all your shopping with the Myntra app. Download the Myntra app on your Android or IOS device today and experience shopping like never before!</p>
+            <h4>HISTORY OF MYNTRA</h4>
+            <p class="description">Becoming India’s no. 1 fashion destination is not an easy feat. Sincere efforts, digital enhancements and a team of dedicated personnel with an equally loyal customer base have made Myntra the online platform that it is today. The original B2B venture for personalized <a style="text-decoration: none; color: #696b79;"href="#">gifts</a> was conceived in 2007 but transitioned into a full-fledged ecommerce giant within a span of just a few years. By 2012, Myntra had introduced 350 Indian and international brands to its platform, and this has only grown in number each passing year. Today Myntra sits on top of the online fashion game with an astounding social media following, a loyalty program dedicated to its customers, and tempting, hard-to-say-no-to deals. <br><br>
+                The Myntra shopping app came into existence in the year 2015 to further encourage customers’ shopping sprees. Download the app on your Android or IOS device this very minute to experience fashion like never before</p>
+            <h4>SHOP ONLINE AT MYNTRA WITH COMPLETE CONVENIENCE</h4>
+            <p class="description">Another reason why Myntra is the best of all online stores is the complete convenience that it offers. You can view your favourite brands with price options for different products in one place. A user-friendly interface will guide you through your selection process. Comprehensive size charts, product information and high-resolution images help you make the best buying decisions. You also have the freedom to choose your payment options, be it card or cash-on-delivery. The 14-day returns policy gives you more power as a buyer. Additionally, the try-and-buy option for select products takes customer-friendliness to the next level. <br><br>
+                Enjoy the hassle-free experience as you shop comfortably from your home or your workplace. You can also shop for your friends, family and loved-ones and avail our gift services for special occasions.</p>
+            <br>
+            <br>
+        </section>
+    </Footer>
+    <aside>
+        <div class=" FreeShippingBanner-sidebar FreeShippingBanner-sidebar-collapsed">
+            <div class=" FreeShippingBanner-arrow FreeShippingBanner-arrow-collapsed"></div>
+            <p class="FreeShippingBanner-sidebar-content">FLAT ₹400 OFF</p>
+        </div>
+    </aside>
+</body>
+</html>
