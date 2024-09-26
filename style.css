@@ -134,7 +134,7 @@ header{
 footer{
     background-color: #fafbfc;
 }
-.mainlinks-container{
+.links-container{
     display: grid;
     grid-template-columns: 1fr 1fr 2fr 2fr 1fr;
     justify-content: space-between;
@@ -143,36 +143,38 @@ footer{
 }
 .heading{
     margin:25px 0;
-}
-.heading a{
     text-transform: uppercase;
     text-decoration: none;
     color: black;
     font-size: 12px;
     font-weight: 700;
 }
+.online-shopping, .useful-links, .customer-policies, .app-links, .social-links{
+    display: flex;
+    flex-direction: column;
+}
 .links{
     text-transform: capitalize;
     text-decoration: none;
     color: #696b79;;
     font-size: 15px;
-    line-height: 20px;
+    line-height: 25px;
 }
-.app-links{
+.app-images, .socialapp-images{
     display: flex;
     justify-content: space-between;
-    width: 75%;
+    width:85%;
 }
-.app img{
-    width:95%;
+.app-images img{
+    width: 95%;
+}
+.socialapp-images img{
+    width: 55%;
 }
 .social-links{
     display: flex;
     justify-content: space-between;
-    width: 35%;
-}
-.social-links img{
-    width: 70%;
+    width: 55%;
 }
 .return-info{
     display: flex;
@@ -191,7 +193,8 @@ b{
     color: black;
 }
 .tag img{
-    width: 18%;
+    max-width: 40px;
+    max-height: 40px;
 }
 .popular-searches{
     text-transform: uppercase;
@@ -245,17 +248,18 @@ hr{
     margin: 30px 7%;
     background-color: #94969f;;
 }
-.address-info{
+.info-container{
     display: flex;
     margin-left: 7%;
     margin-right: 18%;
     justify-content: space-between;
 }
-.capitalize a{
+.capitalize{
     text-transform: capitalize;
     font-size: 15px;
 }
 .address{
+    padding-top: 30px;
     line-height: 20px;
     color: #94969f;
 }
@@ -355,7 +359,7 @@ p{
     }
     .search_bar{
         margin: 0;
-        min-width: 30px;
+        min-width: 40px;
         height:15px;
         padding: 0;
         flex-grow: 0;
@@ -366,7 +370,7 @@ p{
     }
     .search_input{
         margin: 0;
-        min-width: 70px;
+        min-width: 100px;
         padding-left: 1%;
         height:15px;
         flex-grow: 0;
@@ -384,9 +388,12 @@ p{
         color: #94969f;
     }
     .category-heading{
-        margin: 15px;
+        margin: 12px;
         font-size: 13px;
         letter-spacing:2px;
+    }
+    .category-items{
+        margin: 0;
     }
     .offer-img{
         width:60px;
@@ -394,170 +401,111 @@ p{
     .category{
         margin-bottom: 20px;
     }
-    .mainlinks-container{
-        grid-template-columns: 1fr 1fr 2fr 2fr 0.5fr;
+    .links-container{
+        grid-template-columns: 1fr 1fr 2fr 2fr 1fr;
+        margin-left: 4%;
+    }
+    .online-shopping, .useful-links, .customer-policies{
+        margin-right: 10px;
     }
     .heading{
-        margin:2px 0;
-    }
-    .heading a{
+        margin:6px 0;
         font-size: 4px;
     }
     .links{
-        font-size: 4px;
-        line-height: 1px;
-    }
-    .app-links{
-        width: 60%;
-    }
-    .app img{
-        width:90%;
+        font-size: 6px;
+        line-height: normal;
     }
     .social-links{
-        width: 30%;
-    }
-    .social-links img{
-        width: 85%;
+        width: 45%;
     }
     .tag{
-        width: 90%;
-        margin-top: 14%;
-        font-size: 6px;
+        width: 100%;
+        font-size: 7px;
     }
     .tag img{
         width: 15px;
         height:15px;
     }
+    .popularlinks-container{
+        margin-left: 4%;
+    }
     .popular-searches{
-        text-transform: uppercase;
-        color: black;
-        font-size: 12px;
-        font-weight: 700;
-        margin-top: 20px;
-        margin-bottom: 25px;
+        font-size: 4px;
+        margin: 8px 0;
     }
-    .line-after-text {
-        display: flex;
-        align-items: center;
-        margin-left: 7%;
+    .line-after-text{
+        margin: 0;
     }
-    
     .line-after-text::after {
-        content: '';
-        flex-grow: 1;
-        height: 1px;
-        background-color: #94969f;;
+        height: 0.5px;
         margin-left: 10px;
-        margin-right: 8%;
+        margin-right: 6%;
     }
-    
     .search-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-        font-size: 15px;
-        color: #696b79;;
-        margin:0 7% 35px 7%;
-    }
-    
-    .search-links a {
-        text-decoration: none;
-        color: inherit;
-    }
-    
-    .side-lines a:not(:last-child)::after {
-        content: '|';
-        margin-left: 5px;
-        color: #94969f;;
+        gap: 3px;
+        font-size: 5px;
+        margin:0 6% 15px 0%;
     }
     .contact{
-        font-size: 12px;
-    }
-    .contact div{
-        padding: 12px;
+        font-size: 5px;
+        margin: 0 6% 0 0;
+        width: 90%;
     }
     hr{
-        margin: 30px 7%;
-        background-color: #94969f;;
+        margin: 10px 6% 0 0;
     }
     .address-info{
-        display: flex;
-        margin-left: 7%;
-        margin-right: 18%;
-        justify-content: space-between;
+        margin-left: 4%;
+        margin-right: 4%;
     }
-    .capitalize a{
-        text-transform: capitalize;
-        font-size: 15px;
+    .info-container{
+        margin: 0;
     }
     .address{
-        line-height: 20px;
-        color: #94969f;
+        line-height: 10px;
+        padding-top: 4px;
     }
-    .tel{
-        align-self:end;
-        color: #94969f;
+    .address-info hr{
+        margin: 10px 0;
+        width: 100%;
     }
     .desc{
-        margin:0 6%;
-        padding: 0 14px;
+        margin:0 1%;
     }
     h4{
-        color: #545454;
-        font-size: 14px;
-        margin: 20px 0 8px 0;
+        font-size: 6px;
+        margin: 10px 0 4px 0;
     }
     .description, li{
-        font-size: 14px;
-        color: #94969f;
+        font-size: 6px;
     }
     li{
-        margin: 8px 0 8px 4%;
+        margin: 4px 0 4px 3%;
     }
     p{
-        padding-bottom: 10px;
+        padding-bottom: 5px;
     }
     
     .FreeShippingBanner-sidebar {
-        position: fixed;
-        bottom: 130px;
-        right:0;
-        width: 44px;
-        height: 288px;
-        background-color: #535766;
+        width: 24px;
+        height: 150px;
         z-index: 6;
-        color: #fff;
-        letter-spacing: 1px;
-        cursor: pointer;
+        letter-spacing: normal;
+
     }
     .FreeShippingBanner-sidebar-content {
-        -webkit-writing-mode: vertical-rl;
-        -ms-writing-mode: tb-rl;
-        writing-mode: vertical-rl;
-        -webkit-transform: rotate(-180deg);
-        transform: rotate(-180deg);
-        width: 36px;
+        width: 18px;
         padding: 4px;
-        height: 200px;
-        vertical-align: middle;
-        text-align: center;
-        font-size: 24px;
-        font-weight: 700;
-        -webkit-margin-after: 0;
-        margin-block-end: 0;
-        -webkit-margin-before: 0;
-        margin-block-start: 0;
-        color: #fcfcfc;
-        display: inline-block;
+        height: 100px;
+        font-size: 14px;
     }
     .FreeShippingBanner-arrow-collapsed {
-        border-right: 14px solid #fff;
+        border-right: 12px solid #fff;
     }
     .FreeShippingBanner-arrow {
-        width: 0;
-        height: 0;
-        margin: 24px 16px;
-        border-top: 12px solid transparent;
-        border-bottom: 12px solid transparent;
+        margin: 10px 7px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
     }
 }
