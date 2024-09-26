@@ -492,7 +492,7 @@ p{
         height: 150px;
         z-index: 6;
         letter-spacing: normal;
-
+        top: 80px;
     }
     .FreeShippingBanner-sidebar-content {
         width: 18px;
