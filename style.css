@@ -12,9 +12,11 @@ header{
     height: 80px;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
 }
 .mynthra_home{
-    height: 45px;
+    height: 40px;
+    margin-top: 10px;
 }
 .logo_container{
     margin-left: 4%;
@@ -35,8 +37,8 @@ header{
     text-align: center;
     font-weight:bolder;
     text-transform: uppercase;
-    padding: 5px 17px 20px;
-    border-bottom: 5px solid #ffffff;
+    padding: 15px 0px 25px;
+    border-bottom: 3px solid #ffffff;
 }
 .nav_bar a:hover{
     border-bottom: 3px solid #f54e77;
@@ -160,15 +162,15 @@ footer{
     font-size: 15px;
     line-height: 25px;
 }
-.app-images, .socialapp-images{
+.app-imgs, .socialapp-imgs{
     display: flex;
     justify-content: space-between;
     width:85%;
 }
-.app-images img{
+.app-imgs img{
     width: 95%;
 }
-.socialapp-images img{
+.socialapp-imgs img{
     width: 55%;
 }
 .social-links{
@@ -294,7 +296,6 @@ p{
     width: 44px;
     height: 288px;
     background-color: #535766;
-    z-index: 6;
     color: #fff;
     letter-spacing: 1px;
     cursor: pointer;
@@ -322,6 +323,9 @@ p{
 .FreeShippingBanner-arrow-collapsed {
     border-right: 14px solid #fff;
 }
+.FreeShippingBanner-arrow-expanded {
+    border-left: 14px solid #fff;
+}
 .FreeShippingBanner-arrow {
     width: 0;
     height: 0;
@@ -329,6 +333,164 @@ p{
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
 }
+.freeshippingbanner-container{
+    width: 45vw;
+    height: 288px;
+    background: linear-gradient(120deg, #ffcccc, #ffffef);
+    position: fixed;
+    bottom: 130px;
+    right:0;
+    color: #414141;
+}
+.top{
+    margin-left: 3vw;
+    display:flex;
+}
+.bottom{
+    margin-left: 2vw;
+    display: flex;
+    justify-content: space-around;
+}
+.bottom p{
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    gap: 5px;
+}
+.bottom span{
+    color: green;
+}
+.freebannerhr{
+    width:100%;
+    border: 0.2px solid gray;
+    margin:10px 0 10px 0;
+}
+.left-side{
+    display: flex;
+    flex-direction: column;
+    gap:35px;
+    margin-top: 3vw;
+}
+.left-side h1{
+    font-size: 50px;
+}
+.left-side p{
+    font-size: 12px;
+}
+.right-side img{
+    width:60%;
+    margin-top: 10%;
+}
+.right-side a{
+    margin-left: 25%;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #e94067;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+}
+.right-side{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vw;
+}
+.transparent{
+    margin: 0;padding: 0;
+    background-color:#a7a7ad54;
+    height:100vh;
+    width: 98.7vw;
+    position:absolute;
+}
+.hoverbox {
+    left: 55px;
+    background-color: rgb(253, 252, 252);
+    display: flex;
+    gap: 25px;
+    padding: 10px 50px 40px 50px;
+    width: 90vw;
+}
+
+.flex-row{
+    width:18%;
+}
+.rowhr{
+    width: 90%;
+    margin: 10px 0;
+}
+h3{
+    margin: 10px 0 0 0;
+}
+.flex-row h3 a{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color:#e94067;
+    text-decoration: none;
+}
+.women h3 a{
+    color: #ed4cbd;
+}
+.kids h3 a{
+    color:#e48144;
+}
+.home h3 a{
+    color: rgba(255, 187, 0, 0.886);
+}
+.item{
+    display: block;
+    margin: 5px 0;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+.item:hover{
+    font-weight: bold;
+}
+.mynthra_studio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mynthra_studio h4{
+    padding: 0 0 15px 5px;
+    font-size: large;
+}
+.mynthra_studio_img{
+    width:20px;
+    height: 20px;
+}
+.studiobox{
+    width:40vw;
+    height:70vh;
+    left:30vw;
+    background-color: rgb(253, 252, 252);
+    padding: 10px 50px 40px 50px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
+}
+.studioimgs{
+    width:100%;
+    display: flex;
+}
+.studioimgs img{
+    width:23%;
+    transform: skewY(10deg);
+}
+.studiolink{
+    text-decoration: none;
+    color: #0a0a0a;
+    border:1px solid black;
+    padding: 10px;
+    margin: 15px 0;
+}
+
 @media screen and (max-width: 480px) {
     header{
         height:5vw;
