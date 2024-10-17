@@ -1,3 +1,11 @@
+let searchicon=document.querySelector('.search_icon');
+let searchinput=document.querySelector('.search_input');
+searchinput.addEventListener('focus', backgroundcolor);
+searchinput.addEventListener('blur', backgroundcolor); 
+
+function backgroundcolor(){
+    searchicon.classList.toggle('highlight');
+}
 let body = document.querySelector('body');
 
 let men = document.querySelector('.men');
