@@ -9,47 +9,48 @@ header{
     top:0;
     display: flex;
     background-color: #ffffff;
-    height: 80px;
+    height: 13vh;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
 }
 .mynthra_home{
-    height: 40px;
-    margin-top: 10px;
+    height: 3vw;
+    margin-top: 12%;
 }
 .logo_container{
     margin-left: 4%;
 }
 .nav_bar{
     display: flex;
-    min-width: 500px;
+    min-width: 180px;
     width: 45vw;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 1.5vw;
 }
 .nav_bar a{
-    font-size: 14px;
+    font-size: 1.15vw;
     letter-spacing: .3px;
     color: #282c3f;
     text-decoration: none;
     text-align: center;
     font-weight:bolder;
     text-transform: uppercase;
-    padding: 15px 0px 25px;
-    border-bottom: 3px solid #ffffff;
+    padding: 1vw 0px 1.7vw;
+    border-bottom: 0.3vw solid #ffffff;
 }
 .nav_bar a:hover{
-    border-bottom: 3px solid #f54e77;
+    border-bottom: 0.3vw solid #f54e77;
 }
 .nav_bar a sup{
     color: #ff3f6c;
-    font-size: 10px;
+    font-size: 0.8vw;
 }
 .search_bar{
-    height: 40px;
-    min-width: 200px;
+    min-height:2vw;
+    height: 5vw;
+    min-width: 5vw;
     width: 28vw;
     margin-left: 1%;
     display: flex;
@@ -57,49 +58,55 @@ header{
 }
 .search_icon{
     box-sizing: content-box;
-    height: 20px;
-    padding: 10px;
+    height: 1.6vw;
+    min-height: 18px;
+    padding: 0.8vw;
     background-color:#f5f5f6;
-    color:#282c3f;
-    font-weight: 300;
     border-radius: 4px 0 0 4px;
 }
 .search_input{
     color: #696e79;
+    font-size: 1.1vw;
     background-color: #f5f5f6;
-    height: 40px;
-    flex-grow: 1;
+    min-height: 25px;
+    min-width: 120px;
+    height: 3.1vw;
+    width:25vw;
     border: none;
     border-radius: 0 4px 4px 0;
 }
+.material-symbols-outlined {
+    font-size: 2vw !important;
+}
 .action_bar{
     display: flex;
-    min-width: 200px;
+    min-width: 90px;
+    width:16vw;
     justify-content: space-evenly;
 }
 .action_container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 12px;
+    font-size: 1vw;
     font-weight:700;
 }
 .banner-container{
     display: flex;
-    padding-top: 25px;
-    background-color: #fafafa;
+    padding-top: 2.5vw;
+    background-color: #f4f2f2;
 }
 .banner-container a img{
     width: 100%;
 }
 .category-heading{
-    margin-top: 50px;
+    margin-top: 4vw;
     margin-left: 2.4%;
-    margin-bottom: 60px;
-    font-size: 26px;
+    margin-bottom: 4.5vw;
+    font-size: 2.3vw;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing:4px;
+    letter-spacing:0.3vw;
     color: #414141;
 }
 .bargain-items{
@@ -291,7 +298,7 @@ p{
 
 .FreeShippingBanner-sidebar {
     position: fixed;
-    bottom: 130px;
+    top: 175px;
     right:0;
     width: 44px;
     height: 288px;
@@ -347,7 +354,7 @@ p{
     height: 288px;
     background: linear-gradient(120deg, #ffcccc, #ffffef);
     position: fixed;
-    bottom: 130px;
+    top:175px;
     right:0;
     color: #414141;
 }
@@ -364,6 +371,7 @@ p{
     font-size: 90%;
     font-weight: bold;
     display: flex;
+    align-items: center;
 }
 .bottom span{
     color: green;
@@ -696,7 +704,7 @@ h3{
     }
     .bottom p{
         font-size: 30%;
-        margin-left: 5%;
+        padding: 0;
     }
     .left-side h1{
         font-size: 120%;
@@ -713,9 +721,7 @@ h3{
         font-size: 40%;
     }
     .right-side img{
-        width:100%;
-        margin-top: 10%;
-        margin-bottom: 10%;
+        width:80%;
     }
     .right-side a{
         margin-left: 15%;
