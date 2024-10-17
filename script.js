@@ -670,8 +670,8 @@ let aside=document.querySelector('aside');
 let freeshippingbannersidebar=document.querySelector('.FreeShippingBanner-sidebar');
 let freeshippingbannerarrow=document.querySelector('.FreeShippingBanner-arrow');
 
-freeshippingbannerarrow.addEventListener("click", expandFunction);
-freeshippingbannersidebar.addEventListener("click", expandFunction);
+aside.addEventListener("click", expandFunction);
+
 
 function expandFunction(){
     if (!expandcontainer) {
@@ -708,5 +708,6 @@ function expandFunction(){
     
     freeshippingbannersidebar.classList.toggle('expand');
     freeshippingbannerarrow.classList.toggle('FreeShippingBanner-arrow-expanded');
+    freeshippingbannerarrow.classList.toggle('FreeShippingBanner-arrow-collapsed');
     expandcontainer.classList.toggle('show');
 }
