@@ -686,7 +686,7 @@ function expandFunction(){
                                 <h1>300 OFF</h1>
                             </div>
                             <div>
-                                <h4>Coupon Code: <span style="font-size:20px;">&nbspMYNTRA300</span></h4>
+                                <h4>Coupon Code: <span class="mynthra300">&nbspMYNTRA300</span></h4>
                                 <p>Applicable on your first order</p>
                             </div>
                         </div>

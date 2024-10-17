@@ -382,6 +382,9 @@ p{
 .left-side h1{
     font-size: 280%;
 }
+.mynthra300{
+    font-size: 20px;
+}
 .left-side p{
     font-size: 80%;
 }
@@ -658,6 +661,9 @@ h3{
     p{
         padding-bottom: 5px;
     }
+    .freeshippingbanner-container{
+        width:60vw;
+    }
     .freeshippingbanner-container, .freeshippingbanner-container{
         height:150px;
         top:80px;
@@ -678,7 +684,7 @@ h3{
         border-left: 12px solid #fff;
     }
     .expand{
-        right:45vw;
+        right:60vw;
     }
     .FreeShippingBanner-arrow-expanded {
         border-right: 12px solid #fff;
@@ -688,4 +694,48 @@ h3{
         border-top: 10px solid transparent;
         border-bottom: 10px solid transparent;
     }
+    .bottom p{
+        font-size: 30%;
+        margin-left: 5%;
+    }
+    .left-side h1{
+        font-size: 120%;
+        margin-bottom: 5%;
+    }
+    .left-side h5{
+        margin-top: 10%;
+        font-size: 20%;
+    }
+    .mynthra300{
+        font-size: 150%;
+    }
+    .left-side p{
+        font-size: 40%;
+    }
+    .right-side img{
+        width:100%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    .right-side a{
+        margin-left: 15%;
+        font-size: 48%;
+        border-radius: 5%;
+        padding: 5% 10%;
+    }
+    .right-side{
+        width:50%;
+        gap:1vw;
+    }
+    .freebannerhr{
+        border: none;
+        height: 0.1px;
+        background-color: #a7a7ad;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        margin: 10px 0;
+    }
+    .transparent, .hoverbox, .studiobox{
+        display: none;
+    }
+
 }
