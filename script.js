@@ -665,44 +665,48 @@ function keepContainerVisible() {
     // Keep the container visible when hovered over
 }
 
-
+let expandcontainer;
 let aside=document.querySelector('aside');
 let freeshippingbannersidebar=document.querySelector('.FreeShippingBanner-sidebar');
 let freeshippingbannerarrow=document.querySelector('.FreeShippingBanner-arrow');
 
-// freeshippingbannersidebar.addEventListener("click", expandFunction);
-// freeshippingbannerarrow.addEventListener("click", expandFunction);
+freeshippingbannerarrow.addEventListener("click", expandFunction);
+freeshippingbannersidebar.addEventListener("click", expandFunction);
 
-// function expandFunction(){
-//     if (!container) {
-//     container=document.createElement("div");
-//     container.classList.add('freeshippingbanner-container');
-//     container.innerHTML=`
-//                 <div class="banner" id="promotionalBanner">
-//                     <div class="top">
-//                         <div class="left-side">
-//                             <div>
-//                                 <h5>Avail Flat</h5>
-//                                 <h1>300 OFF</h1>
-//                             </div>
-//                             <div>
-//                                 <h4>Coupon Code: <span style="font-size:20px;">&nbspMYNTRA300</span></h4>
-//                                 <p>Applicable on your first order</p>
-//                             </div>
-//                         </div>
-//                         <div class="right-side">
-//                             <img src="../images/free banner/300off.png" alt="Promotional Graphic">
-//                             <a href="#" class="sign-up-btn">SIGN UP NOW ></a>
-//                         </div>
-//                     </div>
-//                     <hr class="freebannerhr">
-//                     <div class="bottom">
-//                         <p><span class="material-symbols-outlined">verified</span>Genuine Products</p>
-//                         <p><span class="material-symbols-outlined">apparel</span>Try & Buy</p>
-//                         <p><span class="material-symbols-outlined">swap_horiz</span>Easy Exchange & Returns</p>
-//                     </div>
-//                 </div>
-//     `
-//         aside.append(container);
-//     }
-// }
+function expandFunction(){
+    if (!expandcontainer) {
+        expandcontainer=document.createElement("div");
+        expandcontainer.classList.add('freeshippingbanner-container');
+        expandcontainer.innerHTML=`
+                <div class="banner" id="promotionalBanner">
+                    <div class="top">
+                        <div class="left-side">
+                            <div>
+                                <h5>Avail Flat</h5>
+                                <h1>300 OFF</h1>
+                            </div>
+                            <div>
+                                <h4>Coupon Code: <span style="font-size:20px;">&nbspMYNTRA300</span></h4>
+                                <p>Applicable on your first order</p>
+                            </div>
+                        </div>
+                        <div class="right-side">
+                            <img src="images/free banner/300off.png" alt="Promotional Graphic">
+                            <a href="#" class="sign-up-btn">SIGN UP NOW ></a>
+                        </div>
+                    </div>
+                    <hr class="freebannerhr">
+                    <div class="bottom">
+                        <p><span class="material-symbols-outlined">verified</span>Genuine Products</p>
+                        <p><span class="material-symbols-outlined">apparel</span>Try & Buy</p>
+                        <p><span class="material-symbols-outlined">swap_horiz</span>Easy Exchange & Returns</p>
+                    </div>
+                </div>
+    `   
+        aside.append(expandcontainer);
+    }
+    
+    freeshippingbannersidebar.classList.toggle('expand');
+    freeshippingbannerarrow.classList.toggle('FreeShippingBanner-arrow-expanded');
+    expandcontainer.classList.toggle('show');
+}
