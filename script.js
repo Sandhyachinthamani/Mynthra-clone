@@ -1,10 +1,10 @@
-let searchicon=document.querySelector('.search_icon');
+let searchbar=document.querySelector('.search_bar');
 let searchinput=document.querySelector('.search_input');
 searchinput.addEventListener('focus', backgroundcolor);
 searchinput.addEventListener('blur', backgroundcolor); 
 
 function backgroundcolor(){
-    searchicon.classList.toggle('highlight');
+    searchbar.classList.toggle('searchbarhighlight');
 }
 let body = document.querySelector('body');
 
@@ -719,3 +719,40 @@ function expandFunction(){
     freeshippingbannerarrow.classList.toggle('FreeShippingBanner-arrow-collapsed');
     expandcontainer.classList.toggle('show');
 }
+const dots = document.querySelectorAll('.dot');
+const carouselSlide = document.querySelector('.carousel-slide');
+// const totalSlides = 4; // We have 4 sets of 6 images each
+let currentIndex = 0; // Start at the first slide
+
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', function () {
+        currentIndex = index;
+        const offset = -index * 100; // Shift the carousel by 100% per slide
+        carouselSlide.style.transform = `translateX(${offset}%)`;
+
+        // Update active dot
+        dots.forEach(dot => dot.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// Initialize first dot as active
+dots[0].classList.add('active');
+
+const branddots = document.querySelectorAll('.branddot');
+const carouselSlide1 = document.querySelector('.carousel-slide1');
+
+branddots.forEach((dot, index) => {
+    dot.addEventListener('click', function () {
+        currentIndex = index;
+        const offset = -index * 100; // Shift the carousel by 100% per slide
+        carouselSlide1.style.transform = `translateX(${offset}%)`;
+
+        // Update active dot
+        branddots.forEach(dot => dot.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// Initialize first dot as active
+branddots[0].classList.add('active');

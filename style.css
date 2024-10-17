@@ -48,34 +48,35 @@ header{
     font-size: 0.8vw;
 }
 .search_bar{
-    min-height:2vw;
-    height: 5vw;
+    min-height:21px;
+    height: 3vw;
     min-width: 5vw;
     width: 28vw;
     margin-left: 1%;
     display: flex;
     align-items: center;
+    border-radius: 0 4px 4px 0;
+    background-color:#f4f4f3;
 }
 .search_icon{
     box-sizing: content-box;
     height: 1.45vw;
-    min-height: 14px;
+    min-height: 15.1px;
     padding: 0.8vw;
-    background-color:#f5f5f6;
     border-radius: 4px 0 0 4px;
 }
 .search_input{
     color: #696e79;
     font-size: 1.1vw;
-    background-color: #f5f5f6;
-    min-height: 24px;
+    min-height: 20.2px;
     min-width: 120px;
     height: 3vw;
     width:25vw;
     border: none;
     border-radius: 0 4px 4px 0;
+    background-color:#f4f4f3;
 }
-.highlight{
+.searchbarhighlight{
     background-color: white;
     border:1px solid #e7e7e7;
     border-right: none;
@@ -129,13 +130,53 @@ input:focus {
 .bargain-items img{
     width:96%;
 }
-.offer-items{
+.carousel-container {
+    width: 100%;
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+    position: relative;
+    margin: 0;
+}
+
+.carousel-slide, .carousel-slide1 {
     display: flex;
-    overflow-x:scroll;
+    transition: transform 0.5s ease-in-out;
 }
-.offer-img{
-    width:211px;
+
+.carousel-slide div, .carousel-slide1 div{
+    flex: 0 0 16.6667%; /* Each image takes up 1/6 of the container width (100% / 6) */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
 }
+
+.offer-img {
+    width: 100%; /* Make image take the full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove inline spacing */
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 0.7vw;
+    justify-content: center; /* Center the dots horizontally */
+    margin-top: 0.8vw;
+}
+
+.dot, .branddot {
+    height: 0.6vw;
+    width: 0.6vw;
+    background-color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active, .branddot.active {
+    height: 0.5vw;
+    width: 0.5vw;
+    margin-top: 0.1vw;
+    background-color: rgb(223, 221, 221); /* Highlight active dot */
+}
+
 .category-items{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
