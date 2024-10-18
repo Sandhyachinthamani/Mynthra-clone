@@ -9,14 +9,14 @@ header{
     top:0;
     display: flex;
     background-color: #ffffff;
-    height: 13vh;
+    height: 6.4vw;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
 }
 .mynthra_home{
     height: 3vw;
-    margin-top: 12%;
+    margin-top: 15%;
 }
 .logo_container{
     margin-left: 4%;
@@ -24,7 +24,7 @@ header{
 .nav_bar{
     display: flex;
     min-width: 180px;
-    width: 45vw;
+    width: 44vw;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 1.5vw;
@@ -37,7 +37,7 @@ header{
     text-align: center;
     font-weight:bolder;
     text-transform: uppercase;
-    padding: 1vw 0px 1.7vw;
+    padding: 1.1vw 0px 2vw;
     border-bottom: 0.3vw solid #ffffff;
 }
 .nav_bar a:hover{
@@ -121,6 +121,21 @@ input:focus {
     text-transform: uppercase;
     letter-spacing:0.3vw;
     color: #414141;
+}
+.men-offers{
+    position:relative;
+    letter-spacing: 0.3vw;
+    text-align: center;
+    border-radius: 1vw;
+    background: linear-gradient(120deg, rgb(202, 51, 104), rgb(235, 136, 79),rgb(252, 84, 143));
+    color: white;
+    padding: 1vw;
+    margin: 4vw 1vw;
+    font-size: 3vw;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-around;
 }
 .bargain-items{
     display: grid;
@@ -402,7 +417,7 @@ p{
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
 }
-.freeshippingbanner-container{
+.freeshippingbanner{
     width: 45vw;
     height: 288px;
     background: linear-gradient(120deg, #ffcccc, #ffffef);
@@ -478,29 +493,29 @@ p{
     position:absolute;
 }
 .hoverbox {
-    left: 55px;
+    left: 5vw;
     background-color: rgb(253, 252, 252);
     display: flex;
-    padding-left: 20px;    
+    padding-left: 1.6vw;
     width: 90vw;
 }
 .flex-row:nth-child(even) {
     background-color: #f4f4f3; /* Different light color */
 }
 .flex-row{
-    width:18%;
-    padding: 5px 10px 20px 30px;
+    width:19%;
+    padding: 1vw 1vw 2vw 2vw;
 }
 .rowhr{
     width: 90%;
-    margin: 10px 0;
+    margin: 1vw 0 0;
 }
-h3{
-    margin: 10px 0 0 0;
+.flex-row h3{
+    margin: 0.6vw 0;
+    font-size: 0.5vw;
 }
 .flex-row h3 a{
-    margin-bottom: 10px;
-    font-size: 15px;
+    font-size: 1.1vw;
     font-weight: bold;
     color:#e94067;
     text-decoration: none;
@@ -516,10 +531,10 @@ h3{
 }
 .item{
     display: block;
-    margin: 5px 0;
+    margin: 0.5vw 0;
     text-decoration: none;
     color: #333;
-    font-size: 14px;
+    font-size: 1.1vw;
 }
 .item:hover{
     font-weight: bold;
@@ -530,16 +545,15 @@ h3{
     align-items: center;
 }
 .mynthra_studio h4{
-    padding: 0 0 15px 5px;
-    font-size: large;
+    padding: 0 0 1vw 0.3vw;
+    font-size: 2vw;
 }
 .mynthra_studio_img{
-    width:20px;
-    height: 20px;
+    min-width:30px;
+    width:3vw;
 }
 .studiobox{
     width:40vw;
-    height:70vh;
     left:30vw;
     background-color: rgb(253, 252, 252);
     padding: 10px 50px 40px 50px;
@@ -558,13 +572,26 @@ h3{
     transform: skewY(10deg);
 }
 .studiolink{
+    font-size: 1.5vw;
     text-decoration: none;
     color: #0a0a0a;
     border:1px solid black;
-    padding: 10px;
-    margin: 15px 0;
+    padding: 1vw;
+    margin: 2vw 0;
+}
+.link{
+    /* for '>' in explore now, code is in js*/
+    border: none;
+    padding: 0;
 }
 
+.studiopage{
+    margin: 2vw 16vw;
+    background-color: white;
+}
+.studiopage img{
+    padding: 1vw;
+}
 @media screen and (max-width: 480px) {
     header{
         height:5vw;
