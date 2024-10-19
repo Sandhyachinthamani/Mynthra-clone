@@ -625,6 +625,7 @@ footer p{
 }
 .product-img{
     width:17vw;
+    object-fit: cover;
 }
 .rating{
     position:absolute;
