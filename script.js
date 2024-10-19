@@ -195,52 +195,41 @@ beautyhoverbox.addEventListener("mouseover", function() {
 beautyhoverbox.addEventListener("mouseout", beautyhideOnMouseOut);
 
 let studio=document.querySelector('.studio');
-let container;
+let studiohoverbox = document.querySelector('.studiohoverbox');
 
 studio.addEventListener("mouseover", studioFunction);
-studio.addEventListener("mouseout", hideOnMouseOut);
+studio.addEventListener("mouseout", studiohideOnMouseOut);
 
-function studioFunction(){
-    if (!container) {
-    container = document.createElement("div");
-        transparent = document.createElement("div");
-        transparent.classList.add("transparent");
-        container.classList.add("studiobox");
-        container.innerHTML = `
-        <div class="mynthra_studio">
-            <img class="mynthra_studio_img" src="../images/Myntra_logo.png"> 
-            <h4>Studio</h4>
-        </div>
-            <p>Your daily inspiration for everything fashion</p>
-            <div class="studioimgs">
-            <img src="../images/bargains/1.shirts.jfif">
-            <img src="../images/bargains/2. jeans.jfif">
-            <img src="../images/bargains/3.Tshirts.jfif">
-            <img src="../images/bargains/9.kurta sets.webp" alt="explore studio" />
-        </div>
-        <a href="studio.html" class="studiolink">EXPLORE STUDIO  <span class="studiolink link"> > </span> </a>
-    `
-    container.style.position = "absolute";
-        container.style.top = studio.getBoundingClientRect().bottom + "px"; // Place the hoverbox below the '.men' element
-        container.style.left = studio.getBoundingClientRect().left-100 + "px"; 
-        container.addEventListener("mouseover", keepContainerVisible);
-        container.addEventListener("mouseout", hideOnMouseOut);
-        transparent.style.top = studio.getBoundingClientRect().bottom + "px";
-        body.append(transparent, container);
+function studioFunction() {
+    // Create and append the transparent layer if it doesn't already exist
+    if (!transparentLayer) {
+        transparentLayer = document.createElement("div");
+        transparentLayer.classList.add("transparent");
+        body.append(transparentLayer);
+    }
+    
+    // Position hoverbox below the studio elestudiot
+    studiohoverbox.style.display = 'flex';  // Make hoverbox visible
+    studiohoverbox.style.top = studio.getBoundingClientRect().bottom + "px";
 }
-}
-function hideOnMouseOut(event) {
-    // Check if mouse is outside both the '.men' element and the container
-    if (!men.contains(event.relatedTarget) && !container.contains(event.relatedTarget)) {
-        container.remove(); // Remove container only when mouse is out of both
-        transparent.remove();
-        container = null; // Reset container to be created again on hover
+
+function studiohideOnMouseOut(event) {
+    // Hide hoverbox and remove transparent layer when mouse leaves
+    if (!studio.contains(event.relatedTarget) && !studiohoverbox.contains(event.relatedTarget)) {
+        studiohoverbox.style.display = 'none';  // Hide hoverbox
+        if (transparentLayer) {
+            transparentLayer.remove();  // Remove transparent layer
+            transparentLayer = null;    // Reset transparentLayer to null
+        }
     }
 }
 
-function keepContainerVisible() {
-    // Keep the container visible when hovered over
-}
+// Ensure hoverbox stays visible when hovering over it
+studiohoverbox.addEventListener("mouseover", function() {
+    studiohoverbox.style.display = 'flex';  // Keep hoverbox visible
+});
+
+studiohoverbox.addEventListener("mouseout", studiohideOnMouseOut);
 
 let aside=document.querySelector('aside');
 let freeshippingbannersidebar=document.querySelector('.FreeShippingBanner-sidebar');

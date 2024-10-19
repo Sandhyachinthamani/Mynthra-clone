@@ -490,7 +490,7 @@ footer p{
     color: green;
 }
 /* Styles for the hoverbox */
-.menhoverbox, .womenhoverbox, .kidshoverbox, .beautyhoverbox, .homehoverbox {
+.menhoverbox, .womenhoverbox, .kidshoverbox, .beautyhoverbox, .homehoverbox{
     display: none; /* Hidden by default */
     position: fixed;
     left:4.5vw;
@@ -554,17 +554,19 @@ footer p{
 .item:hover{
     font-weight: bold;
 }
-.studiobox{
-    z-index: 10;
-    width:40vw;
+.studiohoverbox{
+    display: none; /* Hidden by default */
+    position: fixed;
     left:30vw;
-    background-color: rgb(253, 252, 252);
+    background-color: white;
+    z-index: 10;
+    height:35vw;
+    width: 40vw;
     padding: 0.5vw 3vw 2.5vw;
-    display: flex;
     flex-direction: column;
     gap:1vw;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 }
 .mynthra_studio{
     display: flex;
@@ -818,7 +820,7 @@ footer p{
     li{
         margin: 4px 0 4px 3%;
     }
-    p{
+    footer p{
         padding-bottom: 5px;
     }
     .freeshippingbanner-container{
@@ -903,5 +905,32 @@ footer p{
     }
     .transparent{
         display: none;
+    }
+    .product-img{
+        width:42vw;
+    }
+    .rating{
+        bottom:3vw;
+        font-size: 2.2vw;
+        margin-left: 1vw;
+        padding:0.6vw 1vw;
+    }
+    .product-store, .product-name{
+        font-size: 3vw;
+        margin-left: 1.3vw;
+    }
+    .product-price{
+        margin:0 0 0 1.3vw;
+    }
+    .discount-price{
+        font-size: 2.7vw;
+    }
+    .original-price, .discount{
+        font-size: 2.5vw;
+    }
+    .product button{
+        width:90%;
+        padding: 1vw;
+        font-size: 3vw;
     }
 }
