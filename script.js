@@ -208,17 +208,17 @@ function studioFunction(){
         container.classList.add("studiobox");
         container.innerHTML = `
         <div class="mynthra_studio">
-        <img class="mynthra_studio_img" src="../images/Myntra_logo.png"> 
-        <h4>Studio</h4>
+            <img class="mynthra_studio_img" src="../images/Myntra_logo.png"> 
+            <h4>Studio</h4>
         </div>
-        <p>Your daily inspiration for everything fashion</p>
-        <div class="studioimgs">
-        <img src="../images/bargains/1.shirts.jfif">
-        <img src="../images/bargains/2. jeans.jfif">
-        <img src="../images/bargains/3.Tshirts.jfif">
-        <img src="../images/bargains/9.kurta sets.webp" alt="explore studio" />
+            <p>Your daily inspiration for everything fashion</p>
+            <div class="studioimgs">
+            <img src="../images/bargains/1.shirts.jfif">
+            <img src="../images/bargains/2. jeans.jfif">
+            <img src="../images/bargains/3.Tshirts.jfif">
+            <img src="../images/bargains/9.kurta sets.webp" alt="explore studio" />
         </div>
-        <a href="products.html" class="studiolink">EXPLORE STUDIO  <span class="studiolink link"> > </span> </a>
+        <a href="studio.html" class="studiolink">EXPLORE STUDIO  <span class="studiolink link"> > </span> </a>
     `
     container.style.position = "absolute";
         container.style.top = studio.getBoundingClientRect().bottom + "px"; // Place the hoverbox below the '.men' element
