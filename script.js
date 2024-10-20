@@ -245,82 +245,117 @@ function expandFunction(){
     freeshippingbannercontainer.classList.toggle('freeshippingbanner-container')
     freeshippingbannercontainer.classList.toggle('show');
 }
+
 const navigationDots = document.querySelectorAll('.dot');
 const slideContainer = document.querySelector('.carousel-slide');
-let currentSlideIndex = 0; // Start at the first slide
-const totalSlidesCount = 4; // Total slides (24 images divided by 6 images per slide)
+if (slideContainer && navigationDots.length > 0) {
+    let currentSlideIndex = 0; // Start at the first slide
+    const totalSlidesCount = 4; // Total slides (24 images divided by 6 images per slide)
 
-// Function to update the carousel and active dot
-function updateCarouselPosition() {
-    const slideOffset = -currentSlideIndex * 100; // Shift the carousel by 100% per slide
-    slideContainer.style.transform = `translateX(${slideOffset}%)`;
+    // Function to update the carousel and active dot
+    function updateCarouselPosition() {
+        const slideOffset = -currentSlideIndex * 100; // Shift the carousel by 100% per slide
+        slideContainer.style.transform = `translateX(${slideOffset}%)`;
 
-    // Update active navigation dot
-    navigationDots.forEach(dot => dot.classList.remove('active'));
-    navigationDots[currentSlideIndex].classList.add('active');
-}
+        // Update active navigation dot
+        navigationDots.forEach(dot => dot.classList.remove('active'));
+        navigationDots[currentSlideIndex].classList.add('active');
+    }
 
-// Auto-scroll every 3 seconds
-let autoScrollSlides = setInterval(() => {
-    currentSlideIndex = (currentSlideIndex + 1) % totalSlidesCount; // Loop back after the last slide
-    updateCarouselPosition();
-}, 3000); // Change the slide every 3 seconds
-
-// Manual dot navigation
-navigationDots.forEach((dot, index) => {
-    dot.addEventListener('click', function () {
-        clearInterval(autoScrollSlides); // Stop auto-scroll when manually navigating
-        currentSlideIndex = index;
+    // Auto-scroll every 3 seconds
+    let autoScrollSlides = setInterval(() => {
+        currentSlideIndex = (currentSlideIndex + 1) % totalSlidesCount; // Loop back after the last slide
         updateCarouselPosition();
+    }, 3000); // Change the slide every 3 seconds
 
-        // Restart auto-scroll after user interaction
-        autoScrollSlides = setInterval(() => {
-            currentSlideIndex = (currentSlideIndex + 1) % totalSlidesCount;
+    // Manual dot navigation
+    navigationDots.forEach((dot, index) => {
+        dot.addEventListener('click', function () {
+            clearInterval(autoScrollSlides); // Stop auto-scroll when manually navigating
+            currentSlideIndex = index;
             updateCarouselPosition();
-        }, 3000);
+
+            // Restart auto-scroll after user interaction
+            autoScrollSlides = setInterval(() => {
+                currentSlideIndex = (currentSlideIndex + 1) % totalSlidesCount;
+                updateCarouselPosition();
+            }, 3000);
+        });
     });
-});
 
 // Initialize the first dot as active
 navigationDots[0].classList.add('active');
-
+}
 const branddots = document.querySelectorAll('.branddot');
 const carouselSlide1 = document.querySelector('.carousel-slide1');
-let currentIndex = 0; // Keeps track of the current slide
-const totalSlides = 2; // Since you have 12 images, showing 6 per slide means 2 slides
+if (carouselSlide1 && branddots.length > 0) {
+    let currentIndex = 0; // Keeps track of the current slide
+    const totalSlides = 2; // Since you have 12 images, showing 6 per slide means 2 slides
 
-// Function to update the carousel and the active dot
-function updateCarousel() {
-    const offset = -currentIndex * 100; // Shift the carousel by 100% per slide
-    carouselSlide1.style.transform = `translateX(${offset}%)`;
+    // Function to update the carousel and the active dot
+    function updateCarousel() {
+        const offset = -currentIndex * 100; // Shift the carousel by 100% per slide
+        carouselSlide1.style.transform = `translateX(${offset}%)`;
 
-    // Update active dot
-    branddots.forEach(dot => dot.classList.remove('active'));
-    branddots[currentIndex].classList.add('active');
+        // Update active dot
+        branddots.forEach(dot => dot.classList.remove('active'));
+        branddots[currentIndex].classList.add('active');
+    }
+
+    // Set up auto-scroll every 3 seconds
+    const autoScroll = setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides; // Loop back to the first slide after the last one
+        updateCarousel();
+    }, 3000); // Auto-scroll every 3 seconds
+
+    // Manual dot navigation
+    branddots.forEach((dot, index) => {
+        dot.addEventListener('click', function () {
+            clearInterval(autoScroll); // Stop auto-scrolling when user clicks
+            currentIndex = index;
+            updateCarousel();
+
+            // Optionally, restart auto-scrolling after manual navigation
+            setTimeout(() => {
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    updateCarousel();
+                }, 3000);
+            }, 3000);
+        });
+    });
+
+    // Initialize the first dot as active
+    branddots[0].classList.add('active');
 }
 
-// Set up auto-scroll every 3 seconds
-const autoScroll = setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalSlides; // Loop back to the first slide after the last one
-    updateCarousel();
-}, 3000); // Auto-scroll every 3 seconds
+displayproducts();
+let bagproducts=[];
 
-// Manual dot navigation
-branddots.forEach((dot, index) => {
-    dot.addEventListener('click', function () {
-        clearInterval(autoScroll); // Stop auto-scrolling when user clicks
-        currentIndex = index;
-        updateCarousel();
+function addtobag(productId){
+    bagproducts.push(productId);
+}
 
-        // Optionally, restart auto-scrolling after manual navigation
-        setTimeout(() => {
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                updateCarousel();
-            }, 3000);
-        }, 3000);
-    });
-});
-
-// Initialize the first dot as active
-branddots[0].classList.add('active');
+function displayproducts() {
+            let productscontainer=document.querySelector('.productscontainer');
+            let innerhtml='';
+            productslist.forEach(product=>{
+                innerhtml+=`
+                    <div class="product">
+                            <div class="productinfo">
+                                <img class="product-img" src="${product.product_img}" alt="saree">
+                                <p class="rating">${product.rating.star}⭐ | ${product.rating.views}</p>
+                            </div>
+                            <h3 class="product-store">${product.product_store}</h3>
+                            <p class="product-name">${product.product_name}</p>
+                            <div class="product-price">
+                                <span class="current-price">Rs.${product.current_price}</span>
+                                <span class="original-price">Rs.${product.original_price}</span>
+                                <span class="discount">(${product.discount}% Off)</span>
+                            </div>
+                            <button class="addtobag" onclick="addtobag(${product.id});">Add to Bag</button>
+                        </div>
+                `
+            })
+            productscontainer.innerHTML=innerhtml;
+}

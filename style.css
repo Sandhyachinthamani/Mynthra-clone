@@ -617,15 +617,16 @@ footer p{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap:3vw;
-    margin: 3vw;
+    column-gap:0.5vw;
+    row-gap: 3vw;
+    margin: 3vw 2vw;
 }
 .productinfo{
     position: relative;
 }
 .product-img{
-    width:17vw;
-    object-fit: cover;
+    width:16vw;
+    border-radius: 0.3vw;
 }
 .rating{
     position:absolute;
@@ -644,7 +645,7 @@ footer p{
 .product-price{
     margin: 0.8vw 0 0 0.8vw;
 }
-.discount-price{
+.current-price{
     font-size: 1.1vw;
     font-weight: bold;
 }
@@ -657,7 +658,7 @@ footer p{
     font-size: 1vw;
     color: #e48144;
 }
-.product button{
+.addtobag{
     background-color: rgba(105, 255, 105, 0.865);
     border: none;
     width:90%;
@@ -666,6 +667,7 @@ footer p{
     margin: 0.5vw 0 0 0.8vw;
     font-size: 1.2vw;
     font-weight: 700;
+    cursor: pointer;
 }
 @media screen and (max-width: 480px) {
     header{
@@ -923,14 +925,13 @@ footer p{
     .product-price{
         margin:0 0 0 1.3vw;
     }
-    .discount-price{
+    .current-price{
         font-size: 2.7vw;
     }
     .original-price, .discount{
         font-size: 2.5vw;
     }
-    .product button{
-        width:90%;
+    .addtobag{
         padding: 1vw;
         font-size: 3vw;
     }
