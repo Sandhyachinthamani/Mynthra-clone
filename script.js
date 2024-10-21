@@ -328,7 +328,6 @@ if (carouselSlide1 && branddots.length > 0) {
     // Initialize the first dot as active
     branddots[0].classList.add('active');
 }
-
 let bagitemscount = document.querySelector('.bagitemscount');
 
 let bagproductsStr = localStorage.getItem('bagproducts');
@@ -344,19 +343,25 @@ function onload() {
     displaybagitemscount();
     displaywishlist();
     displaybagitems();
+    checkAddToBagAvailability(); // Check if the add to bag option should be disabled
 }
 
 function addtobag(productId) {
-    // Check if product is already in the bag
-    const existingProduct = bagproducts.find(item => item.id === productId);
-    if (existingProduct) {
-        existingProduct.count++;
+    const totalCount = bagproducts.reduce((sum, item) => sum + item.count, 0);
+    if (totalCount < 15) {
+        const existingProduct = bagproducts.find(item => item.id === productId);
+        if (existingProduct) {
+            existingProduct.count++;
+        } else {
+            bagproducts.push({ id: productId, count: 1 }); // Initialize with count 1
+        }
+        displaybagitems();
+        displaybagitemscount();
+        localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
     } else {
-        bagproducts.push({ id: productId, count: 1 });  // Initialize with count 1
+        alert('Maximum products can be ordered is 15 only.');
+        checkAddToBagAvailability(); // Check if the add to bag option should be disabled
     }
-    displaybagitems();
-    displaybagitemscount();
-    localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
 }
 
 function displaybagitemscount() {
@@ -374,12 +379,13 @@ function displayproducts() {
     if (productscontainer) {
         let innerhtml = '';
         productslist.forEach(product => {
+            const isInWishlist = wishlistproducts.includes(product.id) ? '../images/wishlist_heart_red.svg' : '../images/wishlist_heart.svg';
             innerhtml += `
                 <div class="product">
                     <div class="productinfo">
                         <img class="product-img" src="${product.product_img}" alt="saree">
                         <p class="rating">${product.rating.star}⭐ | ${product.rating.views}</p>
-                        <img id="${product.id}" onclick="addtowishlist(${product.id});" class="wishlist" src="../images/wishlist_heart.svg">
+                        <img id="${product.id}" onclick="addtowishlist(${product.id});" class="wishlist" src="${isInWishlist}">
                     </div>
                     <h3 class="product-store">${product.product_store}</h3>
                     <p class="product-name">${product.product_name}</p>
@@ -427,7 +433,7 @@ function displaywishlist() {
                         <div class="productinfo">
                             <img class="product-img" src="${product.product_img}" alt="saree">
                             <p class="rating">${product.rating.star}⭐ | ${product.rating.views}</p>
-                            <img id="${productId}" onclick="addtowishlist(${productId});" class="wishlist" src="../images/wishlist_heart_red.svg">
+                            <img id="${productId}" onclick="addtowishlist(${productId});" class="wishlist" src="../images/wishlist_heart_red.svg"> 
                         </div>
                         <h3 class="product-store">${product.product_store}</h3>
                         <p class="product-name">${product.product_name}</p>
@@ -453,24 +459,23 @@ function displaybagitems() {
             const product = productslist.find(p => p.id === productItem.id);
             if (product) {
                 innerhtml += `
-                    <div class="product" data-product-id="${product.id}">
-                        <div class="productinfo">
-                            <img class="product-img" src="${product.product_img}" alt="saree">
-                            <p class="rating">${product.rating.star}⭐ | ${product.rating.views}</p>
-                            <p class="no_of_items">
-                                <button class="decreasecount" onclick="decreaseCount(${product.id});">-</button>
-                                <span class="no_of_items_count">${productItem.count}</span>
-                                <button class="increasecount" onclick="increaseCount(${product.id});">+</button>
-                            </p>
+                    <div class="bagproduct" data-product-id="${product.id}">
+                        <img class="product-img" src="${product.product_img}" alt="saree">
+                        <div class="bagproductinfo">
+                            <h3 class="product-store bagproductstore">${product.product_store}</h3>
+                            <p class="product-name bagproductname">${product.product_name}</p>
+                            <div class="no_of_items">
+                                    <button class="decreasecount" onclick="decreaseCount(${product.id});">-</button>
+                                    <span class="no_of_items_count">${productItem.count}</span>
+                                    <button class="increasecount" onclick="increaseCount(${product.id});">+</button>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">Rs.${product.current_price}</span>
+                                <span class="original-price">Rs.${product.original_price}</span>
+                                <span class="discount">(${product.discount}% Off)</span>
+                            </div>
+                            <button class="removefrombag" onclick="removefrombag(${product.id});">Delete</button>
                         </div>
-                        <h3 class="product-store">${product.product_store}</h3>
-                        <p class="product-name">${product.product_name}</p>
-                        <div class="product-price">
-                            <span class="current-price">Rs.${product.current_price}</span>
-                            <span class="original-price">Rs.${product.original_price}</span>
-                            <span class="discount">(${product.discount}% Off)</span>
-                        </div>
-                        <button class="removefrombag" onclick="removefrombag(${product.id});">Delete</button>
                     </div>
                 `;
             }
@@ -483,15 +488,16 @@ function increaseCount(productId) {
     const productItem = bagproducts.find(item => item.id === productId);
     const totalCount = bagproducts.reduce((sum, item) => sum + item.count, 0);
     
-    if (productItem && totalCount < 20) {
+    if (productItem && totalCount < 15) {
         productItem.count++;
-    } else if (totalCount >= 20) {
-        alert('Maximum products can be ordered is 20 only.');
+    } else if (totalCount >= 15) {
+        alert('Maximum products can be ordered is 15 only.');
     }
-    
+
     localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
     displaybagitems();
     displaybagitemscount();
+    checkAddToBagAvailability(); // Check if the add to bag option should be disabled
 }
 
 function decreaseCount(productId) {
@@ -507,6 +513,7 @@ function decreaseCount(productId) {
     localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
     displaybagitems();
     displaybagitemscount();
+    checkAddToBagAvailability(); // Check if the add to bag option should be disabled
 }
 
 function removefrombag(productId) {
@@ -514,6 +521,17 @@ function removefrombag(productId) {
     localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
     displaybagitems();
     displaybagitemscount();
+    checkAddToBagAvailability(); // Check if the add to bag option should be disabled
 }
 
+function checkAddToBagAvailability() {
+    const totalCount = bagproducts.reduce((sum, item) => sum + item.count, 0);
+    const addToBagButtons = document.querySelectorAll('.addtobag');
+    
+    if (totalCount >= 15) {
+        addToBagButtons.forEach(button => button.disabled = true); // Disable all add to bag buttons
+    } else {
+        addToBagButtons.forEach(button => button.disabled = false); // Enable all add to bag buttons
+    }
+}
 onload();

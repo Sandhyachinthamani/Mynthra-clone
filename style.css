@@ -613,7 +613,7 @@ footer p{
 .studiopage img{
     padding: 1vw;
 }
-.productscontainer,.wishlistcontainer, .bagcontainer{
+.productscontainer,.wishlistcontainer{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -637,35 +637,6 @@ footer p{
     background-color: rgba(253, 252, 250, 0.667);
     padding:0.3vw 0.4vw;
     border-radius: 0.3vw;
-}
-.wishlist, .no_of_items{
-    position: absolute;
-    right:1vw;
-    bottom:1vw;
-    width:2vw;
-    cursor: pointer;
-}
-.no_of_items{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 1vw;
-    font-weight: bold;
-    color: white;
-    width:4vw;
-}
-.no_of_items button{
-    background:none;
-    border:none;
-    font-size: 1.5vw;
-    cursor: pointer;
-    padding:0 0.4vw;
-    border-radius: 0.3vw;
-    font-weight: bold;
-    background-color: rgba(247, 249, 247, 0.744);
-}
-.no_of_items button:hover{
-    font-size: 1vw;
 }
 .product-store, .product-name{
     font-size: 1.2vw;
@@ -698,10 +669,81 @@ footer p{
     font-weight: 700;
     cursor: pointer;
 }
+.wishlist{
+    position: absolute;
+    right:1vw;
+    bottom:1vw;
+    width:2vw;
+    cursor: pointer;
+}
+.bagpage{
+    display:flex;
+}
+.pricedetails{
+    flex:1;
+}
+.bagcontainer{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    column-gap:0.5vw;
+    row-gap: 1vw;
+    margin: 3vw 0 3vw 2vw;
+    height:100vh;
+    flex-wrap: nowrap;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
+.bagproduct{
+    display: flex;
+    gap:2vw;
+    width:95%;
+    border:0.1vw solid rgb(214, 214, 214);
+    padding: 0.7vw;
+    border-radius: 0.2vw;
+    margin: 0 3vw;
+}
+.bagproduct .product-img{
+    width:10vw;
+}
+.bagproductinfo{
+    width:95%;
+}
+.no_of_items{
+    width:2vw;
+    cursor: pointer;
+}
+.no_of_items{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2vw;
+    font-weight: bold;
+    color: rgb(15, 15, 15);
+    width:6vw;
+    margin: 1vw 0.6vw;
+}
+.no_of_items button{
+    border:0.1vw solid black;
+    font-size: 1.5vw;
+    cursor: pointer;
+    padding:0 0.4vw;
+    border-radius: 0.2vw;
+    font-weight: bold;
+    background-color: rgba(219, 220, 219, 0.744);
+}
+.no_of_items button:hover{
+    font-size: 1vw;
+}
+.bagproductstore, .bagproductname{
+    width:100%;
+}
 .removefrombag{
     background-color: rgba(237, 87, 87, 0.865);
     border: none;
-    width:90%;
+    width:50%;
     padding: 0.5vw;
     border-radius: 0.5vw;
     margin: 0.5vw 0 0 0.8vw;
@@ -725,6 +767,89 @@ footer p{
     color: white;
     font-size: 1vw;
 }
+.profile-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profile-info {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    margin-right: 20px;
+}
+
+.profile-pic img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.order-history {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.order-history th,
+.order-history td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.edit-profile-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-profile-btn:hover {
+    background-color: #218838;
+}
+
+.edit-form {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.edit-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.edit-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.edit-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-form button:hover {
+    background-color: #0056b3;
+}
+
 @media screen and (max-width: 480px) {
     header{
         height:5vw;
@@ -987,7 +1112,7 @@ footer p{
     .original-price, .discount{
         font-size: 2.5vw;
     }
-    .addtobag, .removefrombag{
+    .addtobag, .removefrombag, .addtobag:hover{
         padding: 1vw;
         font-size: 3vw;
     }
@@ -1005,4 +1130,5 @@ footer p{
     .no_of_items button{
         font-size: 2.6vw;
     }
+    
 }
