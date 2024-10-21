@@ -347,15 +347,22 @@ function onload() {
 }
 
 function addtobag(productId) {
-    bagproducts.push({ id: productId, count: 1 });  // Initialize with count 1
+    // Check if product is already in the bag
+    const existingProduct = bagproducts.find(item => item.id === productId);
+    if (existingProduct) {
+        existingProduct.count++;
+    } else {
+        bagproducts.push({ id: productId, count: 1 });  // Initialize with count 1
+    }
     displaybagitems();
     displaybagitemscount();
     localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
 }
 
 function displaybagitemscount() {
-    if (bagproducts.length > 0) {
-        bagitemscount.innerText = bagproducts.length;
+    const totalCount = bagproducts.reduce((sum, item) => sum + item.count, 0);
+    if (totalCount > 0) {
+        bagitemscount.innerText = totalCount;
         bagitemscount.style.visibility = 'visible';
     } else {
         bagitemscount.style.visibility = 'hidden';
@@ -474,9 +481,14 @@ function displaybagitems() {
 
 function increaseCount(productId) {
     const productItem = bagproducts.find(item => item.id === productId);
-    if (productItem && productItem.count < 5) {
+    const totalCount = bagproducts.reduce((sum, item) => sum + item.count, 0);
+    
+    if (productItem && totalCount < 20) {
         productItem.count++;
+    } else if (totalCount >= 20) {
+        alert('Maximum products can be ordered is 20 only.');
     }
+    
     localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
     displaybagitems();
     displaybagitemscount();
@@ -484,12 +496,14 @@ function increaseCount(productId) {
 
 function decreaseCount(productId) {
     const productItem = bagproducts.find(item => item.id === productId);
+    
     if (productItem) {
         productItem.count--;
         if (productItem.count < 1) {
             removefrombag(productId); // If count drops below 1, remove the product
         }
     }
+    
     localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
     displaybagitems();
     displaybagitemscount();
