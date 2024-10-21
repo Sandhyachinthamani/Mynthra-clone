@@ -68,9 +68,7 @@ header{
 .search_input{
     color: #696e79;
     font-size: 1.1vw;
-    min-height: 20.2px;
     min-width: 120px;
-    height: 3vw;
     width:25vw;
     border: none;
     border-radius: 0 4px 4px 0;
@@ -79,14 +77,11 @@ header{
 .searchbarhighlight{
     background-color: white;
     border:1px solid #e7e7e7;
-    border-right: none;
 }
 input:focus {
     outline: none;
     box-shadow: none;
     background-color: white;
-    border:1px solid #e7e7e7;
-    border-left: none;
 }
 .material-symbols-outlined {
     font-size: 2vw !important;
@@ -207,7 +202,7 @@ input:focus {
 }
 .category{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
     justify-content: center;
     margin-left: 5px;
     margin-bottom: 50px;
@@ -852,75 +847,92 @@ footer p{
 
 @media screen and (max-width: 480px) {
     header{
-        height:5vw;
+        height:10vw;
         padding: 15px 0;
     }
     .mynthra_home{
-        height: 15px;
+        height: 17px;
     }
     .logo_container{
-        margin: 4px;
+        margin: 25px;
     }
     .nav_bar{
-        min-width: 180px;
+        width: 300px;
     }
     .nav_bar a{
-        font-size: 6px;
-        padding: 3px 0 9px 0;
+        font-size: 8px;
+        padding: 7px 0 14px 0;
         border-bottom: 2px solid white;
     }
     .nav_bar a:hover{
         border-bottom: 1px solid #f54e77;
     }
     .nav_bar a sup{
-        font-size: 6px;  
+        font-size: 5px;  
+    }
+    .menhoverbox, .womenhoverbox, .kidshoverbox, .beautyhoverbox, .homehoverbox{
+        visibility: hidden;
     }
     .banner-container{
-        padding-top: 15px;
+        padding-top: 25px;
     }
     .search_bar{
+        position:fixed;
+        top:10.5vw;
+        left: 20px;
         margin: 0;
-        min-width: 40px;
+        width:90%;
         height:15px;
         padding: 0;
+        margin-bottom: 30px;
         flex-grow: 0;
+        border-radius: 20px;
+        border: 1px solid rgb(215, 214, 214);
     }  
     .search_icon{
         height: 11px;
-        padding: 2px 0;
+        padding: 2px 2px;
     }
     .search_input{
         margin: 0;
-        min-width: 100px;
+        width:180px;
         padding-left: 1%;
         height:15px;
         flex-grow: 0;
-        font-size: 6px;
+        font-size: 8px;
     }
     .action_bar{
-        min-width: 60px;
-        margin-right: 1vw;
+        min-width: 100px;
+        margin-right: 1.2vw;
     }
-    .action_container{
-        font-size: 6px;
+    .action_container a{
+        font-size: 8px;
     }
     .material-symbols-outlined {
-        font-size: 13px !important;
+        font-size: 17px !important;
         color: #94969f;
     }
     .category-heading{
         margin: 12px;
-        font-size: 13px;
+        font-size: 17px;
         letter-spacing:2px;
+    }
+    .bargain-items{
+        grid-template-columns: repeat(4, 1fr);
     }
     .category-items{
         margin: 0;
+        grid-template-columns: repeat(3, 1fr);
     }
     .offer-img{
         width:60px;
     }
     .category{
         margin-bottom: 20px;
+        grid-template-columns: 0 1fr 1fr 1fr 0;
+    }
+    .category img{
+        width:170px;
     }
     .links-container{
         grid-template-columns: 1fr 1fr 2fr 2fr 1fr;
@@ -1090,6 +1102,9 @@ footer p{
     .transparent{
         display: none;
     }
+    .productscontainer, .bagpage, .wishlistcontainer{
+        margin-top: 30px;
+    }
     .product-img{
         width:42vw;
     }
@@ -1112,6 +1127,11 @@ footer p{
     .original-price, .discount{
         font-size: 2.5vw;
     }
+    .wishlist{
+        right:2vw;
+        bottom:3vw;
+        width:4vw;
+    }
     .addtobag, .removefrombag, .addtobag:hover{
         padding: 1vw;
         font-size: 3vw;
@@ -1119,6 +1139,12 @@ footer p{
     .bagitemscount{
         padding:0.02vw 0.6vw;
         color: white;
+        font-size: 1.8vw;
+    }
+    .bagitemscount{
+        top:-0.6vw;
+        right:-1.5vw;
+        padding:0.3vw 0.6vw;
         font-size: 1.8vw;
     }
     .no_of_items{
