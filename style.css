@@ -613,7 +613,7 @@ footer p{
 .studiopage img{
     padding: 1vw;
 }
-.productscontainer{
+.productscontainer,.wishlistcontainer, .bagcontainer{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -638,6 +638,32 @@ footer p{
     padding:0.3vw 0.4vw;
     border-radius: 0.3vw;
 }
+.wishlist, .no_of_items{
+    position: absolute;
+    right:1vw;
+    bottom:1vw;
+    width:2vw;
+    cursor: pointer;
+}
+.no_of_items{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1vw;
+    font-weight: bold;
+    color: white;
+    width:4vw;
+}
+.no_of_items button{
+    background:none;
+    border:none;
+    font-size: 1.5vw;
+    cursor: pointer;
+    padding:0 0.4vw;
+    border-radius: 0.3vw;
+    font-weight: bold;
+    background-color: rgba(249, 247, 247, 0.744);
+}
 .product-store, .product-name{
     font-size: 1.2vw;
     margin-left: 0.8vw;
@@ -660,6 +686,17 @@ footer p{
 }
 .addtobag{
     background-color: rgba(105, 255, 105, 0.865);
+    border: none;
+    width:90%;
+    padding: 0.5vw;
+    border-radius: 0.5vw;
+    margin: 0.5vw 0 0 0.8vw;
+    font-size: 1.2vw;
+    font-weight: 700;
+    cursor: pointer;
+}
+.removefrombag{
+    background-color: rgba(255, 105, 105, 0.865);
     border: none;
     width:90%;
     padding: 0.5vw;

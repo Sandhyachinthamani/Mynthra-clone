@@ -329,17 +329,25 @@ if (carouselSlide1 && branddots.length > 0) {
     branddots[0].classList.add('active');
 }
 
+
+let bagitemscount=document.querySelector('.bagitemscount');
+
 let bagproductsStr = localStorage.getItem('bagproducts');
 let bagproducts = bagproductsStr ? JSON.parse(bagproductsStr) : [];
-let bagitemscount=document.querySelector('.bagitemscount');
+
+let wishlistproductstr = localStorage.getItem('wishlistproducts');
+let wishlistproducts = wishlistproductstr ? JSON.parse(wishlistproductstr) : [];
 onload();
 function onload(){
     displayproducts();
     displaybagitemscount();
+    displaywishlist();
+    displaybagitems();
 }
 
 function addtobag(productId){
     bagproducts.push(productId);
+    displaybagitems();
     displaybagitemscount();
     localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
 }
@@ -364,6 +372,7 @@ function displayproducts() {
                             <div class="productinfo">
                                 <img class="product-img" src="${product.product_img}" alt="saree">
                                 <p class="rating">${product.rating.star}⭐ | ${product.rating.views}</p>
+                                <img id="${product.id}" onclick="addtowishlist(${product.id});" class="wishlist" src="../images/wishlist_heart.svg">
                             </div>
                             <h3 class="product-store">${product.product_store}</h3>
                             <p class="product-name">${product.product_name}</p>
@@ -379,3 +388,102 @@ function displayproducts() {
             productscontainer.innerHTML=innerhtml;
         }
 }
+
+function addtowishlist(productId) {
+    let heartred = document.getElementById(productId);
+    const defaultHeartSrc = "../images/wishlist_heart.svg"; // Default heart image source
+    const redHeartSrc = "../images/wishlist_heart_red.svg"; // Red heart image source
+
+    // Check the current source of the heart image to toggle
+    if (heartred.src.endsWith("wishlist_heart_red.svg")) {
+        heartred.src = defaultHeartSrc; // Switch to default heart
+        // Remove the product ID from the wishlist array
+        wishlistproducts = wishlistproducts.filter(id => id !== productId); 
+    } else {
+        heartred.src = redHeartSrc; // Switch to red heart
+        // Add the product ID to the wishlist array if not already present
+        if (!wishlistproducts.includes(productId)) {
+            wishlistproducts.push(productId);
+        }
+    }
+
+    // Save the updated wishlist to localStorage
+    localStorage.setItem('wishlistproducts', JSON.stringify(wishlistproducts));
+    displaywishlist(productId); // Call to update the displayed wishlist
+}
+
+function displaywishlist() {
+    let wishlistcontainer = document.querySelector('.wishlistcontainer');
+    if (wishlistcontainer) {
+        let innerhtml = '';
+        // Loop through the product IDs in the wishlist and create the display
+        wishlistproducts.forEach(productId => {
+            const product = productslist.find(p => p.id === productId); // Get the product details from the original list
+            if (product) { // Ensure the product exists
+                innerhtml += `
+                    <div class="product">
+                        <div class="productinfo">
+                            <img class="product-img" src="${product.product_img}" alt="saree">
+                            <p class="rating">${product.rating.star}⭐ | ${product.rating.views}</p>
+                            <img id="${productId}" onclick="addtowishlist(${productId});" class="wishlist" src="../images/wishlist_heart_red.svg"> <!-- Default to red heart if it's in wishlist -->
+                        </div>
+                        <h3 class="product-store">${product.product_store}</h3>
+                        <p class="product-name">${product.product_name}</p>
+                        <div class="product-price">
+                            <span class="current-price">Rs.${product.current_price}</span>
+                            <span class="original-price">Rs.${product.original_price}</span>
+                            <span class="discount">(${product.discount}% Off)</span>
+                        </div>
+                        <button class="addtobag" onclick="addtobag(${productId});">Add to Bag</button>
+                    </div>
+                `;
+            }
+        });
+        wishlistcontainer.innerHTML = innerhtml; // Update the container with the new innerHTML
+    }
+}
+
+function displaybagitems(){
+    let bagcontainer=document.querySelector('.bagcontainer');
+        if(bagcontainer){
+            let innerhtml='';
+            bagproducts.forEach(productId=>{
+                const product = productslist.find(p => p.id === productId);
+                if(product){
+                innerhtml+=`
+                    <div class="product">
+                            <div class="productinfo">
+                                <img class="product-img" src="${product.product_img}" alt="saree">
+                                <p class="rating">${product.rating.star}⭐ | ${product.rating.views}</p>
+                                <p class="no_of_items"><button class="_ve">-</button><span class="no_of_items_count">1</span><button class="+ve">+</button></p>
+                            </div>
+                            <h3 class="product-store">${product.product_store}</h3>
+                            <p class="product-name">${product.product_name}</p>
+                            <div class="product-price">
+                                <span class="current-price">Rs.${product.current_price}</span>
+                                <span class="original-price">Rs.${product.original_price}</span>
+                                <span class="discount">(${product.discount}% Off)</span>
+                            </div>
+                            <button class="removefrombag" onclick="removefrombag(${product.id});">Delete</button>
+                        </div>
+                `
+            }
+            })
+            bagcontainer.innerHTML=innerhtml;
+        }
+}
+
+function removefrombag(productId) {
+    // Filter out the product ID from the bagproducts array
+    bagproducts = bagproducts.filter(id => id !== productId);
+    
+    // Update localStorage with the new bagproducts array
+    localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
+    
+    // Update the displayed bag items
+    displaybagitems();
+    displaybagitemscount(); // Update the bag item count
+}
+
+onload();
+
