@@ -662,7 +662,10 @@ footer p{
     padding:0 0.4vw;
     border-radius: 0.3vw;
     font-weight: bold;
-    background-color: rgba(249, 247, 247, 0.744);
+    background-color: rgba(247, 249, 247, 0.744);
+}
+.no_of_items button:hover{
+    font-size: 1vw;
 }
 .product-store, .product-name{
     font-size: 1.2vw;
@@ -696,7 +699,7 @@ footer p{
     cursor: pointer;
 }
 .removefrombag{
-    background-color: rgba(255, 105, 105, 0.865);
+    background-color: rgba(237, 87, 87, 0.865);
     border: none;
     width:90%;
     padding: 0.5vw;
@@ -705,6 +708,9 @@ footer p{
     font-size: 1.2vw;
     font-weight: 700;
     cursor: pointer;
+}
+.addtobag:hover, .removefrombag:hover{
+    font-size: 1.1vw;
 }
 .bag{
     position:relative;
@@ -981,8 +987,22 @@ footer p{
     .original-price, .discount{
         font-size: 2.5vw;
     }
-    .addtobag{
+    .addtobag, .removefrombag{
         padding: 1vw;
         font-size: 3vw;
+    }
+    .bagitemscount{
+        padding:0.02vw 0.6vw;
+        color: white;
+        font-size: 1.8vw;
+    }
+    .no_of_items{
+        bottom:3vw;
+        font-size: 2vw;
+        gap:0.5vw;
+        right:4vw;
+    }
+    .no_of_items button{
+        font-size: 2.6vw;
     }
 }

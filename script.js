@@ -329,64 +329,64 @@ if (carouselSlide1 && branddots.length > 0) {
     branddots[0].classList.add('active');
 }
 
-
-let bagitemscount=document.querySelector('.bagitemscount');
+let bagitemscount = document.querySelector('.bagitemscount');
 
 let bagproductsStr = localStorage.getItem('bagproducts');
 let bagproducts = bagproductsStr ? JSON.parse(bagproductsStr) : [];
 
 let wishlistproductstr = localStorage.getItem('wishlistproducts');
 let wishlistproducts = wishlistproductstr ? JSON.parse(wishlistproductstr) : [];
+
 onload();
-function onload(){
+
+function onload() {
     displayproducts();
     displaybagitemscount();
     displaywishlist();
     displaybagitems();
 }
 
-function addtobag(productId){
-    bagproducts.push(productId);
+function addtobag(productId) {
+    bagproducts.push({ id: productId, count: 1 });  // Initialize with count 1
     displaybagitems();
     displaybagitemscount();
     localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
 }
 
-function displaybagitemscount(){
-    if(bagproducts.length>0){
-        bagitemscount.innerText=bagproducts.length;
-        bagitemscount.style.visibility='visible';
-    }
-    else{
-        bagitemscount.style.visibility='hidden';
+function displaybagitemscount() {
+    if (bagproducts.length > 0) {
+        bagitemscount.innerText = bagproducts.length;
+        bagitemscount.style.visibility = 'visible';
+    } else {
+        bagitemscount.style.visibility = 'hidden';
     }
 }
 
 function displayproducts() {
-            let productscontainer=document.querySelector('.productscontainer');
-        if(productscontainer){
-            let innerhtml='';
-            productslist.forEach(product=>{
-                innerhtml+=`
-                    <div class="product">
-                            <div class="productinfo">
-                                <img class="product-img" src="${product.product_img}" alt="saree">
-                                <p class="rating">${product.rating.star}⭐ | ${product.rating.views}</p>
-                                <img id="${product.id}" onclick="addtowishlist(${product.id});" class="wishlist" src="../images/wishlist_heart.svg">
-                            </div>
-                            <h3 class="product-store">${product.product_store}</h3>
-                            <p class="product-name">${product.product_name}</p>
-                            <div class="product-price">
-                                <span class="current-price">Rs.${product.current_price}</span>
-                                <span class="original-price">Rs.${product.original_price}</span>
-                                <span class="discount">(${product.discount}% Off)</span>
-                            </div>
-                            <button class="addtobag" onclick="addtobag(${product.id});">Add to Bag</button>
-                        </div>
-                `
-            })
-            productscontainer.innerHTML=innerhtml;
-        }
+    let productscontainer = document.querySelector('.productscontainer');
+    if (productscontainer) {
+        let innerhtml = '';
+        productslist.forEach(product => {
+            innerhtml += `
+                <div class="product">
+                    <div class="productinfo">
+                        <img class="product-img" src="${product.product_img}" alt="saree">
+                        <p class="rating">${product.rating.star}⭐ | ${product.rating.views}</p>
+                        <img id="${product.id}" onclick="addtowishlist(${product.id});" class="wishlist" src="../images/wishlist_heart.svg">
+                    </div>
+                    <h3 class="product-store">${product.product_store}</h3>
+                    <p class="product-name">${product.product_name}</p>
+                    <div class="product-price">
+                        <span class="current-price">Rs.${product.current_price}</span>
+                        <span class="original-price">Rs.${product.original_price}</span>
+                        <span class="discount">(${product.discount}% Off)</span>
+                    </div>
+                    <button class="addtobag" onclick="addtobag(${product.id});">Add to Bag</button>
+                </div>
+            `;
+        });
+        productscontainer.innerHTML = innerhtml;
+    }
 }
 
 function addtowishlist(productId) {
@@ -394,38 +394,33 @@ function addtowishlist(productId) {
     const defaultHeartSrc = "../images/wishlist_heart.svg"; // Default heart image source
     const redHeartSrc = "../images/wishlist_heart_red.svg"; // Red heart image source
 
-    // Check the current source of the heart image to toggle
     if (heartred.src.endsWith("wishlist_heart_red.svg")) {
-        heartred.src = defaultHeartSrc; // Switch to default heart
-        // Remove the product ID from the wishlist array
-        wishlistproducts = wishlistproducts.filter(id => id !== productId); 
+        heartred.src = defaultHeartSrc;
+        wishlistproducts = wishlistproducts.filter(id => id !== productId);
     } else {
-        heartred.src = redHeartSrc; // Switch to red heart
-        // Add the product ID to the wishlist array if not already present
+        heartred.src = redHeartSrc;
         if (!wishlistproducts.includes(productId)) {
             wishlistproducts.push(productId);
         }
     }
 
-    // Save the updated wishlist to localStorage
     localStorage.setItem('wishlistproducts', JSON.stringify(wishlistproducts));
-    displaywishlist(productId); // Call to update the displayed wishlist
+    displaywishlist();
 }
 
 function displaywishlist() {
     let wishlistcontainer = document.querySelector('.wishlistcontainer');
     if (wishlistcontainer) {
         let innerhtml = '';
-        // Loop through the product IDs in the wishlist and create the display
         wishlistproducts.forEach(productId => {
-            const product = productslist.find(p => p.id === productId); // Get the product details from the original list
-            if (product) { // Ensure the product exists
+            const product = productslist.find(p => p.id === productId);
+            if (product) {
                 innerhtml += `
                     <div class="product">
                         <div class="productinfo">
                             <img class="product-img" src="${product.product_img}" alt="saree">
                             <p class="rating">${product.rating.star}⭐ | ${product.rating.views}</p>
-                            <img id="${productId}" onclick="addtowishlist(${productId});" class="wishlist" src="../images/wishlist_heart_red.svg"> <!-- Default to red heart if it's in wishlist -->
+                            <img id="${productId}" onclick="addtowishlist(${productId});" class="wishlist" src="../images/wishlist_heart_red.svg">
                         </div>
                         <h3 class="product-store">${product.product_store}</h3>
                         <p class="product-name">${product.product_name}</p>
@@ -439,51 +434,72 @@ function displaywishlist() {
                 `;
             }
         });
-        wishlistcontainer.innerHTML = innerhtml; // Update the container with the new innerHTML
+        wishlistcontainer.innerHTML = innerhtml;
     }
 }
 
-function displaybagitems(){
-    let bagcontainer=document.querySelector('.bagcontainer');
-        if(bagcontainer){
-            let innerhtml='';
-            bagproducts.forEach(productId=>{
-                const product = productslist.find(p => p.id === productId);
-                if(product){
-                innerhtml+=`
-                    <div class="product">
-                            <div class="productinfo">
-                                <img class="product-img" src="${product.product_img}" alt="saree">
-                                <p class="rating">${product.rating.star}⭐ | ${product.rating.views}</p>
-                                <p class="no_of_items"><button class="_ve">-</button><span class="no_of_items_count">1</span><button class="+ve">+</button></p>
-                            </div>
-                            <h3 class="product-store">${product.product_store}</h3>
-                            <p class="product-name">${product.product_name}</p>
-                            <div class="product-price">
-                                <span class="current-price">Rs.${product.current_price}</span>
-                                <span class="original-price">Rs.${product.original_price}</span>
-                                <span class="discount">(${product.discount}% Off)</span>
-                            </div>
-                            <button class="removefrombag" onclick="removefrombag(${product.id});">Delete</button>
+function displaybagitems() {
+    let bagcontainer = document.querySelector('.bagcontainer');
+    if (bagcontainer) {
+        let innerhtml = '';
+        bagproducts.forEach(productItem => {
+            const product = productslist.find(p => p.id === productItem.id);
+            if (product) {
+                innerhtml += `
+                    <div class="product" data-product-id="${product.id}">
+                        <div class="productinfo">
+                            <img class="product-img" src="${product.product_img}" alt="saree">
+                            <p class="rating">${product.rating.star}⭐ | ${product.rating.views}</p>
+                            <p class="no_of_items">
+                                <button class="decreasecount" onclick="decreaseCount(${product.id});">-</button>
+                                <span class="no_of_items_count">${productItem.count}</span>
+                                <button class="increasecount" onclick="increaseCount(${product.id});">+</button>
+                            </p>
                         </div>
-                `
+                        <h3 class="product-store">${product.product_store}</h3>
+                        <p class="product-name">${product.product_name}</p>
+                        <div class="product-price">
+                            <span class="current-price">Rs.${product.current_price}</span>
+                            <span class="original-price">Rs.${product.original_price}</span>
+                            <span class="discount">(${product.discount}% Off)</span>
+                        </div>
+                        <button class="removefrombag" onclick="removefrombag(${product.id});">Delete</button>
+                    </div>
+                `;
             }
-            })
-            bagcontainer.innerHTML=innerhtml;
+        });
+        bagcontainer.innerHTML = innerhtml;
+    }
+}
+
+function increaseCount(productId) {
+    const productItem = bagproducts.find(item => item.id === productId);
+    if (productItem && productItem.count < 5) {
+        productItem.count++;
+    }
+    localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
+    displaybagitems();
+    displaybagitemscount();
+}
+
+function decreaseCount(productId) {
+    const productItem = bagproducts.find(item => item.id === productId);
+    if (productItem) {
+        productItem.count--;
+        if (productItem.count < 1) {
+            removefrombag(productId); // If count drops below 1, remove the product
         }
+    }
+    localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
+    displaybagitems();
+    displaybagitemscount();
 }
 
 function removefrombag(productId) {
-    // Filter out the product ID from the bagproducts array
-    bagproducts = bagproducts.filter(id => id !== productId);
-    
-    // Update localStorage with the new bagproducts array
+    bagproducts = bagproducts.filter(item => item.id !== productId);
     localStorage.setItem('bagproducts', JSON.stringify(bagproducts));
-    
-    // Update the displayed bag items
     displaybagitems();
-    displaybagitemscount(); // Update the bag item count
+    displaybagitemscount();
 }
 
 onload();
-
