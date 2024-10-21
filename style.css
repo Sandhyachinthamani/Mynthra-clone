@@ -347,7 +347,7 @@ hr{
     margin:0 6%;
     padding: 0 14px;
 }
-h4{
+footer h4{
     color: #545454;
     font-size: 14px;
     margin: 20px 0 8px 0;
@@ -676,17 +676,50 @@ footer p{
 }
 .pricedetails{
     flex:1;
+    color:#535766;
+    margin: 2vw 4vw 0 0;
+}
+.pricedetails h4{
+    font-size: 1vw;
+}
+.price_box h4{
+    font-size: 1.2vw;
+}
+.price_box p,span{
+    font-size: 1.1vw;
+}
+.price_box{
+    display: flex;
+    gap:1vw;
+    margin: 1vw 0 0.5vw 0;
+}
+.bagrowhr{
+    margin: 1vw 4.5vw 0.2vw 0;
+}
+.placeorder{
+    background-color:#e94067;
+    border: none;
+    color: white;
+    font-size: 1.1vw;
+    padding: 0.9vw 0;
+    width:80%;
+    margin-top: 0.3vw;
+    font-weight: bold;
+    border-radius: 0.2vw;
+}
+.emptybag{
+    align-self: center;
 }
 .bagcontainer{
     display: flex;
-    flex:1;
+    flex:1.5;
     flex-direction: column;
     justify-content: space-evenly;
     flex-wrap: wrap;
     column-gap:0.5vw;
     row-gap: 1vw;
     margin: 3vw 0 3vw 2vw;
-    height:100vh;
+    height:100%;
     flex-wrap: nowrap;
     overflow-y:scroll;
     overflow-x: hidden;
@@ -705,6 +738,13 @@ footer p{
 }
 .bagproductinfo{
     width:95%;
+    height:90%;
+    justify-content: center;
+    align-items: baseline;
+    margin: 0.5vw 0;
+    row-gap:0.5vw;
+    display: flex;
+    flex-direction: column;
 }
 .no_of_items{
     width:2vw;
@@ -762,89 +802,6 @@ footer p{
     color: white;
     font-size: 1vw;
 }
-.profile-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.profile-info {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.profile-pic {
-    margin-right: 20px;
-}
-
-.profile-pic img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-.order-history {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-.order-history th,
-.order-history td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-}
-
-.edit-profile-btn {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.edit-profile-btn:hover {
-    background-color: #218838;
-}
-
-.edit-form {
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-.edit-form label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.edit-form input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.edit-form button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.edit-form button:hover {
-    background-color: #0056b3;
-}
-
 @media screen and (max-width: 480px) {
     header{
         height:10vw;
@@ -870,7 +827,7 @@ footer p{
     .nav_bar a sup{
         font-size: 5px;  
     }
-    .menhoverbox, .womenhoverbox, .kidshoverbox, .beautyhoverbox, .homehoverbox{
+    .menhoverbox, .womenhoverbox, .kidshoverbox, .beautyhoverbox, .homehoverbox, .studiohoverbox{
         visibility: hidden;
     }
     .banner-container{
@@ -878,10 +835,10 @@ footer p{
     }
     .search_bar{
         position:fixed;
-        top:10.5vw;
-        left: 20px;
+        top:10vw;
+        left: 16px;
         margin: 0;
-        width:90%;
+        width:80%;
         height:15px;
         padding: 0;
         margin-bottom: 30px;
@@ -1006,7 +963,7 @@ footer p{
     .desc{
         margin:0 1%;
     }
-    h4{
+    footer h4{
         font-size: 6px;
         margin: 10px 0 4px 0;
     }
@@ -1150,11 +1107,38 @@ footer p{
     .no_of_items{
         bottom:3vw;
         font-size: 2vw;
-        gap:0.5vw;
+        gap:1vw;
         right:4vw;
     }
     .no_of_items button{
         font-size: 2.6vw;
     }
-    
+    .emptybag{
+        font-size: 1.6vw;
+    }
+    .bagcontainer{
+        flex:1.5;
+    }
+    .bagproduct{
+        width:214px;
+    }
+    .bagproduct .product-img{
+        width:75px;
+        height:120px;
+    }
+    .bagproductstore{
+        font-size: 12px;
+    }
+    .bagproductname{
+        font-size: 10px;
+    }
+    .bagproductprice{
+        font-size: 10px;
+    }
+    .baghr{
+        margin: 0 10px 0;
+    }
+    .pricedetails{
+        flex:1;
+    }
 }

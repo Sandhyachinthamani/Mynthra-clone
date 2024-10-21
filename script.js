@@ -232,18 +232,20 @@ studiohoverbox.addEventListener("mouseover", function() {
 studiohoverbox.addEventListener("mouseout", studiohideOnMouseOut);
 
 let aside=document.querySelector('aside');
-let freeshippingbannersidebar=document.querySelector('.FreeShippingBanner-sidebar');
-let freeshippingbannerarrow=document.querySelector('.FreeShippingBanner-arrow');
-let freeshippingbannercontainer=document.querySelector('.freeshippingbanner');
-aside.addEventListener("click", expandFunction);
+if(aside){
+        let freeshippingbannersidebar=document.querySelector('.FreeShippingBanner-sidebar');
+        let freeshippingbannerarrow=document.querySelector('.FreeShippingBanner-arrow');
+        let freeshippingbannercontainer=document.querySelector('.freeshippingbanner');
+        aside.addEventListener("click", expandFunction);
 
 
-function expandFunction(){
-    freeshippingbannersidebar.classList.toggle('expand');
-    freeshippingbannerarrow.classList.toggle('FreeShippingBanner-arrow-expanded');
-    freeshippingbannerarrow.classList.toggle('FreeShippingBanner-arrow-collapsed');
-    freeshippingbannercontainer.classList.toggle('freeshippingbanner-container')
-    freeshippingbannercontainer.classList.toggle('show');
+        function expandFunction(){
+            freeshippingbannersidebar.classList.toggle('expand');
+            freeshippingbannerarrow.classList.toggle('FreeShippingBanner-arrow-expanded');
+            freeshippingbannerarrow.classList.toggle('FreeShippingBanner-arrow-collapsed');
+            freeshippingbannercontainer.classList.toggle('freeshippingbanner-container')
+            freeshippingbannercontainer.classList.toggle('show');
+        }
 }
 
 const navigationDots = document.querySelectorAll('.dot');
@@ -454,34 +456,37 @@ function displaywishlist() {
 function displaybagitems() {
     let bagcontainer = document.querySelector('.bagcontainer');
     if (bagcontainer) {
-        let innerhtml = '';
-        bagproducts.forEach(productItem => {
-            const product = productslist.find(p => p.id === productItem.id);
-            if (product) {
-                innerhtml += `
-                    <div class="bagproduct" data-product-id="${product.id}">
-                        <img class="product-img" src="${product.product_img}" alt="saree">
-                        <div class="bagproductinfo">
-                            <h3 class="product-store bagproductstore">${product.product_store}</h3>
-                            <p class="product-name bagproductname">${product.product_name}</p>
-                            <div class="no_of_items">
-                                    <button class="decreasecount" onclick="decreaseCount(${product.id});">-</button>
-                                    <span class="no_of_items_count">${productItem.count}</span>
-                                    <button class="increasecount" onclick="increaseCount(${product.id});">+</button>
+        if (bagproducts.length === 0) {
+            bagcontainer.innerHTML = `<p class="emptybag">Your bag is empty!</p>`;
+        } else {
+                let innerhtml = '';
+                bagproducts.forEach(productItem => {
+                    const product = productslist.find(p => p.id === productItem.id);
+                    if (product) {
+                        innerhtml += `
+                            <div class="bagproduct" data-product-id="${product.id}">
+                                <img class="product-img" src="${product.product_img}" alt="saree">
+                                <div class="bagproductinfo">
+                                    <h3 class="product-store bagproductstore">${product.product_store}</h3>
+                                    <p class="product-name bagproductname">${product.product_name}</p>
+                                    <div class="no_of_items">
+                                            <button class="decreasecount" onclick="decreaseCount(${product.id});">-</button>
+                                            <span class="no_of_items_count">${productItem.count}</span>
+                                            <button class="increasecount" onclick="increaseCount(${product.id});">+</button>
+                                    </div>
+                                    <div class="product-price bagproductprice">
+                                        <span class="current-price">Rs.${product.current_price}</span>
+                                        <span class="original-price">Rs.${product.original_price}</span>
+                                        <span class="discount">(${product.discount}% Off)</span>
+                                    </div>
+                                    <button class="removefrombag" onclick="removefrombag(${product.id});">Delete</button>
+                                </div>
                             </div>
-                            <div class="product-price">
-                                <span class="current-price">Rs.${product.current_price}</span>
-                                <span class="original-price">Rs.${product.original_price}</span>
-                                <span class="discount">(${product.discount}% Off)</span>
-                            </div>
-                            <button class="removefrombag" onclick="removefrombag(${product.id});">Delete</button>
-                        </div>
-                    </div>
-                `;
-            }
-        });
-        bagcontainer.innerHTML = innerhtml;
-    }
+                        `;
+                    }
+                });
+                bagcontainer.innerHTML = innerhtml;
+            }    }
 }
 
 function increaseCount(productId) {
