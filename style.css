@@ -685,7 +685,7 @@ footer p{
 .price_box h4{
     font-size: 1.2vw;
 }
-.price_box p,span{
+.price_box p,.price_box span{
     font-size: 1.1vw;
 }
 .price_box{
@@ -775,6 +775,9 @@ footer p{
 .bagproductstore, .bagproductname{
     width:100%;
 }
+.exchange{
+    font-size: 1.1vw;
+}
 .removefrombag{
     background-color: rgba(237, 87, 87, 0.865);
     border: none;
@@ -811,13 +814,13 @@ footer p{
         height: 17px;
     }
     .logo_container{
-        margin: 25px;
+        margin: 25px 0 25px 15px;
     }
     .nav_bar{
-        width: 300px;
+        min-width: 260px;
     }
     .nav_bar a{
-        font-size: 8px;
+        font-size: 9px;
         padding: 7px 0 14px 0;
         border-bottom: 2px solid white;
     }
@@ -836,18 +839,16 @@ footer p{
     .search_bar{
         position:fixed;
         top:10vw;
-        left: 16px;
         margin: 0;
-        width:80%;
+        width:100%;
         height:15px;
         padding: 0;
         margin-bottom: 30px;
         flex-grow: 0;
-        border-radius: 20px;
-        border: 1px solid rgb(215, 214, 214);
     }  
     .search_icon{
         height: 11px;
+        margin-left: 16px;
         padding: 2px 2px;
     }
     .search_input{
@@ -859,7 +860,7 @@ footer p{
         font-size: 8px;
     }
     .action_bar{
-        min-width: 100px;
+        min-width: 90px;
         margin-right: 1.2vw;
     }
     .action_container a{
@@ -881,14 +882,13 @@ footer p{
         margin: 0;
         grid-template-columns: repeat(3, 1fr);
     }
-    .offer-img{
-        width:60px;
-    }
     .category{
         margin-bottom: 20px;
         grid-template-columns: 0 1fr 1fr 1fr 0;
     }
     .category img{
+        display: none;
+        margin: 0;
         width:170px;
     }
     .links-container{
@@ -1078,20 +1078,20 @@ footer p{
     .product-price{
         margin:0 0 0 1.3vw;
     }
-    .current-price{
-        font-size: 2.7vw;
-    }
-    .original-price, .discount{
-        font-size: 2.5vw;
+    .current-price, .original-price, .discount{
+        font-size: 2.1vw;
     }
     .wishlist{
         right:2vw;
         bottom:3vw;
         width:4vw;
     }
-    .addtobag, .removefrombag, .addtobag:hover{
+    .addtobag, .addtobag:hover{
         padding: 1vw;
         font-size: 3vw;
+    }
+    .removefrombag{
+        font-size: 2.6vw;
     }
     .bagitemscount{
         padding:0.02vw 0.6vw;
@@ -1120,14 +1120,17 @@ footer p{
         flex:1.5;
     }
     .bagproduct{
-        width:214px;
+        width:200px;
     }
     .bagproduct .product-img{
         width:75px;
         height:120px;
     }
+    .bagproductinfo{
+        row-gap: 1vw;
+    }
     .bagproductstore{
-        font-size: 12px;
+        font-size: 10px;
     }
     .bagproductname{
         font-size: 10px;
@@ -1136,9 +1139,17 @@ footer p{
         font-size: 10px;
     }
     .baghr{
-        margin: 0 10px 0;
+        margin: 0 10px 0 2px;
     }
     .pricedetails{
         flex:1;
+        margin-top: 3vw;
     }
+    .pricedetails h4, .price_box p, .price_box span, .price_box h4{
+        font-size: 2vw;
+    }
+    .placeorder{
+        font-size: 2.2vw;
+    }
+    
 }

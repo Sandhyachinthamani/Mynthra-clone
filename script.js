@@ -479,6 +479,7 @@ function displaybagitems() {
                                         <span class="original-price">Rs.${product.original_price}</span>
                                         <span class="discount">(${product.discount}% Off)</span>
                                     </div>
+                                    <p class="exchange">14 days returns available</p>
                                     <button class="removefrombag" onclick="removefrombag(${product.id});">Delete</button>
                                 </div>
                             </div>
