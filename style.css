@@ -635,10 +635,6 @@ footer p{
 }
 .product-store, .product-name{
     font-size: 1.2vw;
-    margin-left: 0.8vw;
-}
-.product-price{
-    margin: 0.8vw 0 0 0.8vw;
 }
 .current-price{
     font-size: 1.1vw;
@@ -674,6 +670,9 @@ footer p{
 .bagpage{
     display:flex;
 }
+.baghr{
+    margin: 2vw;
+}
 .pricedetails{
     flex:1;
     color:#535766;
@@ -686,15 +685,20 @@ footer p{
     font-size: 1.2vw;
 }
 .price_box p,.price_box span{
-    font-size: 1.1vw;
+    font-size: 1.2vw;
+}
+.price_box span{
+    align-self: end;
 }
 .price_box{
     display: flex;
     gap:1vw;
-    margin: 1vw 0 0.5vw 0;
+    justify-content: space-between;
+    width:75%;
+    margin: 0.5vw 0;
 }
 .bagrowhr{
-    margin: 1vw 4.5vw 0.2vw 0;
+    margin: 1vw 7vw 0.2vw 0;
 }
 .placeorder{
     background-color:#e94067;
@@ -725,6 +729,7 @@ footer p{
     overflow-x: hidden;
 }
 .bagproduct{
+    position: relative;
     display: flex;
     gap:2vw;
     width:95%;
@@ -742,7 +747,7 @@ footer p{
     justify-content: center;
     align-items: baseline;
     margin: 0.5vw 0;
-    row-gap:0.5vw;
+    row-gap:1.8vw;
     display: flex;
     flex-direction: column;
 }
@@ -758,7 +763,6 @@ footer p{
     font-weight: bold;
     color: rgb(15, 15, 15);
     width:6vw;
-    margin: 1vw 0.6vw;
 }
 .no_of_items button{
     border:0.1vw solid black;
@@ -775,18 +779,18 @@ footer p{
 .bagproductstore, .bagproductname{
     width:100%;
 }
+.bagproductprice, .exchange{
+    margin: 0.5vw 0;
+}
 .exchange{
     font-size: 1.1vw;
 }
 .removefrombag{
-    background-color: rgba(237, 87, 87, 0.865);
-    border: none;
-    width:50%;
-    padding: 0.5vw;
-    border-radius: 0.5vw;
-    margin: 0.5vw 0 0 0.8vw;
-    font-size: 1.2vw;
-    font-weight: 700;
+    position:absolute;
+    right:1vw;
+    top:0.8vw;
+    margin: 0.3vw 1.5vw 0 0.8vw;
+    font-size: 1.1vw;
     cursor: pointer;
 }
 .addtobag:hover, .removefrombag:hover{
@@ -1096,7 +1100,7 @@ footer p{
         margin:0 0 0 1.3vw;
     }
     .current-price, .original-price, .discount{
-        font-size: 2.1vw;
+        font-size: 1.8vw;
     }
     .wishlist{
         right:2vw;
@@ -1108,7 +1112,7 @@ footer p{
         font-size: 3vw;
     }
     .removefrombag{
-        font-size: 2.6vw;
+        font-size: 2vw;
     }
     .bagitemscount{
         padding:0.02vw 0.6vw;
@@ -1126,6 +1130,7 @@ footer p{
         font-size: 2vw;
         gap:1vw;
         right:4vw;
+        margin-top: 1vw;
     }
     .no_of_items button{
         font-size: 2.6vw;
@@ -1144,16 +1149,17 @@ footer p{
         height:120px;
     }
     .bagproductinfo{
-        row-gap: 1vw;
+        row-gap: 5vw;
     }
-    .bagproductstore{
+    .bagproductstore,.bagproductname{
         font-size: 10px;
-    }
-    .bagproductname{
-        font-size: 10px;
+        margin: 0;
     }
     .bagproductprice{
-        font-size: 10px;
+        margin: 0;
+    }
+    .exchange{
+        font-size: 6px;
     }
     .baghr{
         margin: 0 10px 0 2px;

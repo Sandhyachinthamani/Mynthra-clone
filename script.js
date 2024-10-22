@@ -467,21 +467,26 @@ function displaybagitems() {
                             <div class="bagproduct" data-product-id="${product.id}">
                                 <img class="product-img" src="${product.product_img}" alt="saree">
                                 <div class="bagproductinfo">
-                                    <h3 class="product-store bagproductstore">${product.product_store}</h3>
-                                    <p class="product-name bagproductname">${product.product_name}</p>
-                                    <div class="no_of_items">
+                                    <div>
+                                        <h3 class="product-store bagproductstore">${product.product_store}</h3>
+                                        <p class="product-name bagproductname">${product.product_name}</p>
+                                    </div>
+                                    <div>
+                                        <div class="no_of_items">
                                             <button class="decreasecount" onclick="decreaseCount(${product.id});">-</button>
                                             <span class="no_of_items_count">${productItem.count}</span>
                                             <button class="increasecount" onclick="increaseCount(${product.id});">+</button>
+                                        </div>
+                                        <div class="product-price bagproductprice">
+                                            <span class="current-price">Rs.${product.current_price}</span>
+                                            <span class="original-price">Rs.${product.original_price}</span>
+                                            <span class="discount">(${product.discount}% Off)</span>
+                                        </div>
+                                        <p class="exchange"><span style="font-weight:bold;">14 days</span> returns available</p>
+                                        <p class="exchange">Delivery by <span style="color:#07aebe; font-weight:bold;">10 Nov 2024</span></p>
                                     </div>
-                                    <div class="product-price bagproductprice">
-                                        <span class="current-price">Rs.${product.current_price}</span>
-                                        <span class="original-price">Rs.${product.original_price}</span>
-                                        <span class="discount">(${product.discount}% Off)</span>
-                                    </div>
-                                    <p class="exchange">14 days returns available</p>
-                                    <button class="removefrombag" onclick="removefrombag(${product.id});">Delete</button>
                                 </div>
+                                <p class="removefrombag" onclick="removefrombag(${product.id});">X</p>
                             </div>
                         `;
                     }
