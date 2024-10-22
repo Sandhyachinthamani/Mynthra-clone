@@ -346,6 +346,7 @@ function onload() {
     displaywishlist();
     displaybagitems();
     checkAddToBagAvailability(); // Check if the add to bag option should be disabled
+    updatePriceDetails();
 }
 
 function addtobag(productId) {
@@ -364,6 +365,7 @@ function addtobag(productId) {
         alert('Maximum products can be ordered is 15 only.');
         checkAddToBagAvailability(); // Check if the add to bag option should be disabled
     }
+    updatePriceDetails();
 }
 
 function displaybagitemscount() {
@@ -489,7 +491,7 @@ function displaybagitems() {
                                 <p class="removefrombag" onclick="removefrombag(${product.id});">X</p>
                             </div>
                         `;
-                    }
+                }
                 });
                 bagcontainer.innerHTML = innerhtml;
             }    }
@@ -509,6 +511,7 @@ function increaseCount(productId) {
     displaybagitems();
     displaybagitemscount();
     checkAddToBagAvailability(); // Check if the add to bag option should be disabled
+    updatePriceDetails();
 }
 
 function decreaseCount(productId) {
@@ -525,6 +528,7 @@ function decreaseCount(productId) {
     displaybagitems();
     displaybagitemscount();
     checkAddToBagAvailability(); // Check if the add to bag option should be disabled
+    updatePriceDetails();
 }
 
 function removefrombag(productId) {
@@ -533,6 +537,7 @@ function removefrombag(productId) {
     displaybagitems();
     displaybagitemscount();
     checkAddToBagAvailability(); // Check if the add to bag option should be disabled
+    updatePriceDetails();
 }
 
 function checkAddToBagAvailability() {
@@ -545,4 +550,59 @@ function checkAddToBagAvailability() {
         addToBagButtons.forEach(button => button.disabled = false); // Enable all add to bag buttons
     }
 }
+
+function updatePriceDetails() {
+    let totalMRP = 0;
+    let totalDiscount = 0;
+    let convenienceFee = 0; // Assuming a fixed convenience fee
+    let bagcontainer=document.querySelector('.bagcontainer');
+
+    if(bagcontainer){
+
+    // Loop through each product in the bag and calculate the total MRP and discount
+        bagproducts.forEach(productItem => {
+            const product = productslist.find(p => p.id === productItem.id);
+            if (product) {
+                const productTotalMRP = product.original_price * productItem.count;
+                const productTotalDiscount = (product.original_price - product.current_price) * productItem.count;
+                
+                totalMRP += productTotalMRP;
+                totalDiscount += productTotalDiscount;
+            }
+        });
+        if(bagproducts.length!==0)convenienceFee=99;
+        else convenienceFee=0;
+        const totalAmount = totalMRP - totalDiscount + convenienceFee;
+
+        // Update the HTML with calculated values
+        document.querySelector('.pricedetails .price_box span').textContent = `Rs.${totalMRP}`;
+        document.querySelector('.pricedetails .conveniencefee').textContent=`Rs.${convenienceFee}`;
+        document.querySelector('.pricedetails .discount').textContent = `-Rs.${totalDiscount}`;
+        document.querySelector('.pricedetails .totalamount').textContent = `Rs.${totalAmount}`;
+    }
+}
+
+// Function to handle profile editing
+document.querySelector('.edit-btn').addEventListener('click', function () {
+    const userName = prompt("Enter your new name:", "John Doe");
+    const userEmail = prompt("Enter your new email:", "john.doe@example.com");
+    const userPhone = prompt("Enter your new phone number:", "+123 456 7890");
+
+    if (userName) {
+        document.querySelector('.user-details h2').textContent = userName;
+    }
+    if (userEmail) {
+        document.querySelector('.user-details p:nth-of-type(1)').textContent = "Email: " + userEmail;
+    }
+    if (userPhone) {
+        document.querySelector('.user-details p:nth-of-type(2)').textContent = "Phone: " + userPhone;
+    }
+});
+
+// Optional: Prevent form submission for demonstration
+document.querySelector('form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    alert('Password updated successfully!');
+});
+
 onload();

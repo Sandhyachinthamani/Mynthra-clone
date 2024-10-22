@@ -585,7 +585,56 @@
         </div>
     </section>
     <main>
-        
+        <div class="profile-container">
+            <div class="profile-info">
+                <div class="profile-picture">
+                    <img src="../images/profile_photo.jpg" alt="Profile Picture" />
+                </div>
+                <div class="user-details">
+                    <h2>Yashika Revanth</h2>
+                    <p><span style="font-weight: bold;">Email:</span> Yashika.Revanth@example.com</p>
+                    <p><span style="font-weight: bold;">Phone:</span> +91 9876543210</p>
+                    <button class="edit-btn">Edit Profile</button>
+                </div>
+            </div>
+
+            <section id="orders" class="profile-section">
+                <h4>Order History</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#12345</td>
+                            <td>2024-10-01</td>
+                            <td>Delivered</td>
+                            <td>Rs.1059.99</td>
+                        </tr>
+                        <tr>
+                            <td>#12346</td>
+                            <td>2024-09-15</td>
+                            <td>Pending</td>
+                            <td>Rs1329.99</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="settings" class="profile-section">
+                <h4>Account Settings</h4>
+                <form>
+                    <label class="changepassword" for="change-password">Change Password:</label>
+                    <input type="password" id="change-password" placeholder="New Password" required>
+                    <button type="submit">Update Password</button>
+                </form>
+            </section>
+    </div>
     </main>
     <Footer>
         <section class="links-container">
@@ -794,38 +843,6 @@
             <br>
         </section>
     </Footer>
-    <aside>
-        <div class="FreeShippingBanner-sidebar FreeShippingBanner-sidebar-collapsed">
-            <div class="FreeShippingBanner-arrow FreeShippingBanner-arrow-collapsed"></div>
-            <p class="FreeShippingBanner-sidebar-content">FLAT ₹300 OFF</p>
-        </div>
-        <div class="freeshippingbanner freeshippingbanner-container">
-            <div class="banner" id="promotionalBanner">
-                <div class="top">
-                    <div class="left-side">
-                        <div>
-                            <h5>Avail Flat</h5>
-                            <h1>300 OFF</h1>
-                        </div>
-                        <div>
-                            <h4>Coupon Code: <span class="mynthra300">&nbspMYNTRA300</span></h4>
-                            <p>Applicable on your first order</p>
-                        </div>
-                    </div>
-                    <div class="right-side">
-                        <img src="../images/free banner/300off.png" alt="Promotional Graphic">
-                        <a href="#" class="sign-up-btn">SIGN UP NOW ></a>
-                    </div>
-                </div>
-                <hr class="freebannerhr">
-                <div class="bottom">
-                    <p><span class="material-symbols-outlined">verified</span>Genuine Products</p>
-                    <p><span class="material-symbols-outlined">apparel</span>Try & Buy</p>
-                    <p><span class="material-symbols-outlined">swap_horiz</span>Easy Exchange & Returns</p>
-                </div>
-            </div>
-        </div>
-    </aside>
     <script src="../script.js"></script>
 </body>
 </html>

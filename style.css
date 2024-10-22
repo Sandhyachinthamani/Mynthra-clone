@@ -694,7 +694,7 @@ footer p{
     display: flex;
     gap:1vw;
     justify-content: space-between;
-    width:75%;
+    width:78%;
     margin: 0.5vw 0;
 }
 .bagrowhr{
@@ -809,6 +809,89 @@ footer p{
     color: white;
     font-size: 1vw;
 }
+.profile-container {
+    max-width: 60vw;
+    margin: 2vw 20vw;
+    padding: 3vw;
+    background-color: #fff;
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1vw;
+}
+
+.profile-picture {
+    margin-right: 1.2vw;
+}
+
+.profile-picture img {
+    width: 9vw;
+    height: 9vw;
+    border-radius: 50%;
+}
+
+.user-details {
+    flex-grow: 1;
+}
+
+.user-details p{
+    margin: 0.6vw 0;
+    font-size: 1.2vw;
+}
+
+.edit-btn {
+    font-size: 1vw;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5vw 0.6vw;
+    border-radius: 0.4vw;
+    cursor: pointer;
+}
+
+.profile-section {
+    margin-bottom: 0.8vw;
+}
+
+table {
+    margin-top: 0.4vw;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 0.1vw solid #ddd;
+}
+
+th, td {
+    padding: 0.5vw;
+    text-align: left;
+}
+
+form {
+    margin-top: 0.7vw;
+}
+
+form input {
+    padding: 0.6vw;
+    margin-top: 0.3vw;
+    border:1px solid rgb(203, 202, 202);
+    width: calc(100% - 20px);
+}
+
+form button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 480px) {
     header{
         height:10vw;
@@ -1174,5 +1257,60 @@ footer p{
     .placeorder{
         font-size: 2.2vw;
     }
+    .profile-container {
+        max-width: 80vw;
+        margin: 7vw 10vw;
+    }
+    .profile-picture img {
+        width: 12vw;
+        height: 12vw;
+        margin-right: 3vw;
+    }
+    
+    .user-details {
+        flex-grow: 1;
+    }
+    
+    .user-details h2{
+        font-size: 2.8vw;
+    }
+    .user-details p{
+        font-size: 1.8vw;
+    }
+    
+    .edit-btn {
+        font-size: 7px;
+        padding: 4px;
+    }
+    
+    .profile-section {
+        margin-bottom: 0.8vw;
+    }
+    
+    th, td {
+        font-size: 7px;
+    }
+    
+    form {
+        margin-top: 0;
+    }
+    
+    form input {
+        font-size: 7px;
+        width: calc(100% - 30px);
+        border:1px solid rgb(217, 216, 216);
+    }
+    #settings h4, #orders h4{
+        font-size: 8px;
+    }
+    .changepassword, #change-password{
+        font-size: 7px;
+    }
+    form button {
+        font-size: 7px;
+        margin-top: 5px;
+        padding: 5px;
+    }
+    
     
 }
