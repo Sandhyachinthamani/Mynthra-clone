@@ -710,6 +710,7 @@ footer p{
     margin-top: 0.3vw;
     font-weight: bold;
     border-radius: 0.2vw;
+    cursor: pointer;
 }
 .emptybag{
     align-self: center;

@@ -583,7 +583,9 @@ function updatePriceDetails() {
 }
 
 // Function to handle profile editing
-document.querySelector('.edit-btn').addEventListener('click', function () {
+editbutton=document.querySelector('.edit-btn');
+if(editbutton){
+    editbutton.addEventListener('click', function () {
     const userName = prompt("Enter your new name:", "John Doe");
     const userEmail = prompt("Enter your new email:", "john.doe@example.com");
     const userPhone = prompt("Enter your new phone number:", "+123 456 7890");
@@ -598,11 +600,15 @@ document.querySelector('.edit-btn').addEventListener('click', function () {
         document.querySelector('.user-details p:nth-of-type(2)').textContent = "Phone: " + userPhone;
     }
 });
+}
 
 // Optional: Prevent form submission for demonstration
-document.querySelector('form').addEventListener('submit', function (event) {
+form=document.querySelector('form');
+if(form){
+form.addEventListener('submit', function (event) {
     event.preventDefault();
     alert('Password updated successfully!');
 });
+}
 
 onload();
