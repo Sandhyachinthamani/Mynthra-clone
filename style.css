@@ -435,6 +435,9 @@ footer p{
     gap:2vw;
     margin-top: 3vw;
 }
+.left-side h4{
+    font-size: 1vw;
+}
 .left-side h1{
     font-size: 4.5vw;
 }
@@ -1127,19 +1130,26 @@ form button {
         font-size: 30%;
         padding: 0;
     }
+    .left-side{
+        gap:5vw;
+        margin-top: 5vw;
+    }
     .left-side h1{
         font-size: 120%;
         margin-bottom: 5%;
     }
     .left-side h5{
         margin-top: 10%;
-        font-size: 20%;
+        font-size: 2vw;
+    }
+    .left-side h4{
+        font-size: 2vw;
     }
     .mynthra300{
-        font-size: 150%;
+        font-size: 3vw;
     }
     .left-side p{
-        font-size: 40%;
+        font-size: 1.9vw;
     }
     .right-side img{
         width:80%;
@@ -1159,7 +1169,7 @@ form button {
         height: 0.1px;
         background-color: #a7a7ad;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        margin: 10px 0;
+        margin: 8px 0;
     }
     .transparent{
         display: none;
